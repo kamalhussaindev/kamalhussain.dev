@@ -1,13 +1,12 @@
-import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
 import { AUTHOR } from '@/lib/constants'
-import { PLACEHOLDERS } from '@/lib/placeholders'
 
+// [CONFIRM WITH KAMAL] — verify all four numbers before launch
 const NXTAURIC_STATS = [
   { value: '6', label: 'Team members' },
   { value: '8', label: 'Services offered' },
-  { value: '47+', label: 'Clients shipped' },
-  { value: '14', label: 'Countries served' },
+  { value: '30+', label: 'Projects shipped' },
+  { value: '3', label: 'Continents served' },
 ]
 
 export function NxtAuricStrip() {
@@ -36,21 +35,50 @@ export function NxtAuricStrip() {
             nxtauric · the agency i co-founded
           </p>
 
-          {/* PLACEHOLDER-IMG: Replace picsum with a real NxtAuric team photo */}
-          <div className="border-border/30 relative mb-14 h-48 overflow-hidden rounded-xl border">
-            <Image
-              src={PLACEHOLDERS.nxtauricTeam}
-              alt="NxtAuric team"
-              fill
-              className="object-cover opacity-60"
-            />
+          {/* PLACEHOLDER — replace with real NxtAuric brand image when available */}
+          <div
+            className="border-border/30 relative mb-14 h-48 overflow-hidden rounded-xl border"
+            aria-hidden
+            style={{
+              background:
+                'linear-gradient(135deg, oklch(0.11 0.02 280) 0%, oklch(0.15 0.05 270) 45%, oklch(0.10 0.015 300) 100%)',
+            }}
+          >
+            {/* Violet glow left */}
             <div
-              className="absolute inset-0"
+              className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(to right, oklch(0.09 0.008 290 / 0.8) 0%, transparent 60%)',
+                  'radial-gradient(ellipse 55% 90% at 15% 50%, oklch(0.55 0.22 280 / 0.18) 0%, transparent 70%)',
               }}
             />
+            {/* Red glow right */}
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  'radial-gradient(ellipse 40% 80% at 85% 50%, oklch(0.63 0.24 24 / 0.10) 0%, transparent 70%)',
+              }}
+            />
+            {/* Grain texture */}
+            <svg
+              className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.06]"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <filter id="nxtauric-noise">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.8"
+                  numOctaves="4"
+                  stitchTiles="stitch"
+                />
+              </filter>
+              <rect width="100%" height="100%" filter="url(#nxtauric-noise)" />
+            </svg>
+            {/* Watermark */}
+            <span className="absolute right-6 bottom-4 font-mono text-sm font-bold tracking-[-0.02em] text-white/8 select-none">
+              NxtAuric.
+            </span>
           </div>
 
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-3">

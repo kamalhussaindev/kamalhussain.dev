@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { SITE_URL, SITE_NAME, AUTHOR } from '@/lib/constants'
-import { PLACEHOLDERS } from '@/lib/placeholders'
 import { Hero } from '@/components/home/hero'
 import { Stats } from '@/components/home/stats'
 import { ServicesStrip } from '@/components/home/services-strip'
@@ -70,15 +68,24 @@ export default function HomePage() {
                 More about me <ArrowRight size={13} aria-hidden />
               </Link>
             </Reveal>
-            {/* PLACEHOLDER-IMG: Replace with a real photo of Kamal */}
+            {/* [REPLACE WITH REAL PHOTO — Kamal headshot, portrait crop ~3:4] */}
             <Reveal delay={0.15} className="hidden lg:block">
-              <div className="border-border relative aspect-[3/4] overflow-hidden rounded-xl border">
-                <Image
-                  src={PLACEHOLDERS.aboutTeaserPortrait}
-                  alt="Kamal Hussain"
-                  fill
-                  className="object-cover"
-                />
+              <div
+                className="border-border relative flex aspect-[3/4] flex-col items-center justify-center gap-4 overflow-hidden rounded-xl border"
+                style={{
+                  background:
+                    'linear-gradient(160deg, oklch(0.13 0.02 280) 0%, oklch(0.09 0.008 290) 100%)',
+                }}
+              >
+                <div
+                  className="flex h-20 w-20 items-center justify-center rounded-full border border-white/10 text-2xl font-bold tracking-tight"
+                  style={{ color: 'oklch(0.63 0.24 24)' }}
+                >
+                  KH
+                </div>
+                <p className="font-mono text-xs tracking-[0.2em] text-white/30 uppercase">
+                  Kamal Hussain
+                </p>
               </div>
             </Reveal>
           </div>
