@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kamal Hussain</title>
+    <link>https://kamalhussain.dev/blog</link>
+    <description>Freelance DevOps engineer specializing in Kubernetes, CI/CD pipelines, AWS Terraform infrastructure, and observability. Based in Rawalpindi, Pakistan — working with clients globally.</description>
+    <language>en-US</language>
+    <atom:link href="https://kamalhussain.dev/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Wed, 20 May 2026 00:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title><![CDATA[From CSR to SSR: Why Your Portfolio Is Invisible to Google (and How I Fixed Mine)]]></title>
+      <link>https://kamalhussain.dev/blog/csr-to-ssr-seo</link>
+      <guid isPermaLink="true">https://kamalhussain.dev/blog/csr-to-ssr-seo</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[My old portfolio was a CSR React app. Google saw a blank div. Here is how I rebuilt it as SSG.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[A Pragmatic GitOps Setup with ArgoCD: What I Actually Use in Production]]></title>
+      <link>https://kamalhussain.dev/blog/pragmatic-argocd-gitops</link>
+      <guid isPermaLink="true">https://kamalhussain.dev/blog/pragmatic-argocd-gitops</guid>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[The app-of-apps pattern, repo structure, and sync policies I actually use.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Terraform vs Pulumi in 2026: Which One Should You Pick for a Greenfield Project?]]></title>
+      <link>https://kamalhussain.dev/blog/terraform-vs-pulumi-2026</link>
+      <guid isPermaLink="true">https://kamalhussain.dev/blog/terraform-vs-pulumi-2026</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An honest comparison after running both in production.]]></description>
+    </item>
+
+  </channel>
+</rss>

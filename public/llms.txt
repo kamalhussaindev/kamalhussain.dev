@@ -1,0 +1,35 @@
+# Kamal Hussain
+
+> Freelance DevOps & Cloud Engineer — Rawalpindi, Pakistan (remote worldwide)
+
+Kamal Hussain is a freelance engineer specializing in Kubernetes platform engineering,
+CI/CD pipeline design, AWS infrastructure with Terraform, and observability engineering.
+He is also a co-founder of NxtAuric (https://nxtauric.com), a web and cloud agency.
+
+## Services
+
+- [Kubernetes Platform Engineering](https://kamalhussain.dev/services/kubernetes-platform-engineering)
+- [CI/CD Pipeline Engineering](https://kamalhussain.dev/services/cicd-pipeline-engineering)
+- [AWS Cloud Infrastructure with Terraform](https://kamalhussain.dev/services/aws-terraform-infrastructure)
+- [Observability Engineering](https://kamalhussain.dev/services/observability-engineering)
+- [WordPress & Web Development](https://kamalhussain.dev/services/wordpress-web-development)
+- [DevOps Consulting & Audits](https://kamalhussain.dev/services/devops-consulting-audits)
+
+## Content
+
+- [About](https://kamalhussain.dev/about): Background, values, and how Kamal works
+- [Case Studies](https://kamalhussain.dev/work): Real projects with measurable results
+- [Blog](https://kamalhussain.dev/blog): Technical articles on DevOps, cloud, and web development
+- [Uses](https://kamalhussain.dev/uses): Tools, hardware, and daily setup
+- [Now](https://kamalhussain.dev/now): Current projects and learning
+
+## Contact
+
+- Email: hello@kamalhussain.dev
+- Book a call: https://kamalhussain.dev/book
+- Upwork: https://www.upwork.com/freelancers/kamalh
+- Agency: https://nxtauric.com
+
+## Site
+
+- Built with Next.js 16 (SSG) — statically generated, view-source shows real content

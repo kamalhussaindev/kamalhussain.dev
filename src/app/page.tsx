@@ -1,65 +1,128 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { SITE_URL, SITE_NAME, AUTHOR } from '@/lib/constants'
+import { PLACEHOLDERS } from '@/lib/placeholders'
+import { Hero } from '@/components/home/hero'
+import { Stats } from '@/components/home/stats'
+import { ServicesStrip } from '@/components/home/services-strip'
+import { HowIWork } from '@/components/home/how-i-work'
+import { WorkBento } from '@/components/home/work-bento'
+import { TechMarquee } from '@/components/home/tech-marquee'
+import { NxtAuricStrip } from '@/components/home/nxtauric-strip'
+import { Testimonials } from '@/components/home/testimonials'
+import { LogoStrip } from '@/components/home/logo-strip'
+import { MagneticButton } from '@/components/ui/magnetic-button'
+import { Reveal } from '@/components/ui/reveal'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: `${SITE_NAME} — Freelance DevOps & Cloud Engineer`,
+  description:
+    'I build production-grade Kubernetes platforms and CI/CD pipelines for startups that need infrastructure to scale. Based in Pakistan, working globally.',
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    title: `${SITE_NAME} — Freelance DevOps & Cloud Engineer`,
+    url: SITE_URL,
+  },
+}
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero />
+      <LogoStrip />
+      <Stats />
+      <ServicesStrip />
+      <HowIWork />
+      <WorkBento />
+      <TechMarquee />
+      <Testimonials />
+
+      {/* About teaser */}
+      <section className="border-border border-t">
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32 lg:px-8 lg:py-40">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_280px]">
+            <Reveal>
+              <h2 className="text-fg-subtle mb-5 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
+                about
+              </h2>
+              <p className="text-fg-muted text-lg leading-relaxed">
+                I started in Python and data science, moved into full-stack web
+                development, and eventually found my home in DevOps and cloud engineering.
+                Today I work with startups and scale-ups across the US, EU, and MENA —
+                helping them build the infrastructure platforms they need to move fast
+                without breaking things. I&apos;m also a co-founder at{' '}
+                <a
+                  href={AUTHOR.agency}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-primary hover:text-accent-primary/80 transition-colors"
+                >
+                  NxtAuric
+                </a>
+                , a small agency for teams that need more than a single freelancer.
+              </p>
+              <Link
+                href="/about"
+                className="text-accent-primary hover:text-accent-primary/80 mt-5 inline-flex items-center gap-1.5 text-sm transition-colors"
+              >
+                More about me <ArrowRight size={13} aria-hidden />
+              </Link>
+            </Reveal>
+            {/* PLACEHOLDER-IMG: Replace with a real photo of Kamal */}
+            <Reveal delay={0.15} className="hidden lg:block">
+              <div className="border-border relative aspect-[3/4] overflow-hidden rounded-xl border">
+                <Image
+                  src={PLACEHOLDERS.aboutTeaserPortrait}
+                  alt="Kamal Hussain"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <NxtAuricStrip />
+
+      {/* Final CTA */}
+      <section className="border-border border-t">
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32 lg:px-8 lg:py-40">
+          <div className="card-surface rounded-xl px-8 py-12 text-center">
+            <p className="text-fg-subtle mb-4 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
+              Let&apos;s work together
+            </p>
+            <h2 className="max-w-[22ch] text-3xl font-bold tracking-[-0.025em] [text-wrap:balance]">
+              Your infrastructure problem has a solution.
+            </h2>
+            <p className="text-fg-muted mx-auto mt-4 max-w-md leading-relaxed">
+              CI/CD overhaul, Kubernetes platform from scratch, AWS cost audit, or an
+              architecture review before your next scale event — send a brief and
+              I&apos;ll respond within 24 hours.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <MagneticButton>
+                <Link
+                  href="/contact"
+                  className="btn-shimmer bg-accent-primary hover:bg-accent-primary/90 glow-accent-sm inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold text-white transition-all"
+                >
+                  Send a project brief
+                </Link>
+              </MagneticButton>
+              <MagneticButton strength={0.2}>
+                <Link
+                  href="/book"
+                  className="border-border text-foreground hover:bg-bg-raised inline-flex items-center gap-2 rounded-md border px-6 py-3 text-sm font-medium transition-colors"
+                >
+                  Book a free 30-min call
+                </Link>
+              </MagneticButton>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+    </>
+  )
 }
