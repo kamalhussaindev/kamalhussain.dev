@@ -1,15 +1,10 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import { ArrowRight } from 'lucide-react'
 import { MagneticButton } from '@/components/ui/magnetic-button'
-
-const HeroScene = dynamic(() => import('./hero-scene').then((m) => m.HeroScene), {
-  ssr: false,
-  loading: () => null,
-})
 
 export function Hero() {
   const tagRef = useRef<HTMLParagraphElement>(null)
@@ -54,9 +49,15 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
-      {/* R3F scene */}
+      {/* Hero image */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <HeroScene />
+        <Image
+          src="/hero-devops.png"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-30"
+        />
       </div>
 
       {/* Accent glow */}
