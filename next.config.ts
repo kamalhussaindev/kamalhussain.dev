@@ -8,7 +8,11 @@ const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true,
-    remotePatterns: [{ protocol: 'https', hostname: 'logo.clearbit.com' }],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'picsum.photos' },
+      { protocol: 'https', hostname: 'logo.clearbit.com' },
+      { protocol: 'https', hostname: 'i.pravatar.cc' },
+    ],
   },
   async headers() {
     return [

@@ -1,11 +1,13 @@
 /**
- * Image paths used across the site — all pointing to local /public assets.
- * No external placeholder services (picsum / pravatar) remain.
+ * Placeholder image URLs used across the site.
+ * Search for PLACEHOLDER-IMG to find every usage site.
+ * Replace each URL with a real asset before launch.
  */
 
 export const PLACEHOLDERS = {
   // ── Home ──────────────────────────────────────────────────────────────────
 
+  /** Home / LogoStrip — trust strip logos (replace with actual client/partner SVGs) */
   logoStrip: {
     aws: 'https://logo.clearbit.com/aws.amazon.com',
     kubernetes: 'https://logo.clearbit.com/kubernetes.io',
@@ -15,58 +17,72 @@ export const PLACEHOLDERS = {
     vercel: 'https://logo.clearbit.com/vercel.com',
   },
 
-  aboutTeaserPortrait: '/kamal-hussain.png',
+  /** Home / AboutTeaser — portrait in the right column */
+  aboutTeaserPortrait: 'https://picsum.photos/seed/kamal-about/600/700',
 
-  nxtauricTeam: '/hero-devops.png',
+  /** Home / NxtAuricStrip — team photo */
+  nxtauricTeam: 'https://picsum.photos/seed/nxtauric-team/800/500',
 
+  /** Home / Testimonials — reviewer avatars (replace initials with real photos or remove) */
   testimonials: {
-    jamesCarter: '/kamal-hussain.png',
-    priyaNair: '/kamal-hussain.png',
-    davidWalsh: '/kamal-hussain.png',
+    jamesCarter: 'https://i.pravatar.cc/160?img=11',
+    priyaNair: 'https://i.pravatar.cc/160?img=47',
+    davidWalsh: 'https://i.pravatar.cc/160?img=53',
   },
 
   // ── About ─────────────────────────────────────────────────────────────────
 
-  aboutHeroPortrait: '/kamal-hussain.png',
+  /** About / Hero — large portrait in the right column */
+  aboutHeroPortrait: 'https://picsum.photos/seed/kamal-hero/800/900',
 
-  aboutWorkspace: '/workspace.png',
+  /** About / Body — workspace/desk shot between paragraphs */
+  aboutWorkspace: 'https://picsum.photos/seed/kamal-workspace/1200/600',
 
   // ── Services ──────────────────────────────────────────────────────────────
 
-  servicesHero: '/services-hero.png',
+  /** Services index — hero visual */
+  servicesHero: 'https://picsum.photos/seed/services-hero/1200/500',
 
-  serviceHero: (_slug: string) => '/services-hero.png',
+  /** Services [slug] — per-service hero (append slug as seed suffix) */
+  serviceHero: (slug: string) => `https://picsum.photos/seed/service-${slug}/1200/500`,
 
   // ── Work ──────────────────────────────────────────────────────────────────
 
-  workThumbnail: (slug: string) =>
-    slug === 'pulsehealth-eks' ? '/case-study-hero.png' : '/hero-devops.png',
+  /** Work index — case study thumbnails (append slug as seed suffix) */
+  workThumbnail: (slug: string) => `https://picsum.photos/seed/work-${slug}/800/500`,
 
-  workHero: (slug: string) =>
-    slug === 'pulsehealth-eks' ? '/case-study-hero.png' : '/hero-devops.png',
+  /** Work [slug] — full-width hero */
+  workHero: (slug: string) => `https://picsum.photos/seed/workhero-${slug}/1600/700`,
 
+  /** Work [slug] — inline screenshots / result images */
   workScreenshot: (slug: string, n: number) =>
-    slug === 'pulsehealth-eks' && n === 1
-      ? '/pulsehealth-metrics.png'
-      : '/hero-devops.png',
+    `https://picsum.photos/seed/workshot-${slug}-${n}/1200/700`,
 
-  workTestimonialAvatar: (_slug: string) => '/kamal-hussain.png',
+  /** Work [slug] — case study testimonial avatar */
+  workTestimonialAvatar: (slug: string) =>
+    `https://picsum.photos/seed/workavatar-${slug}/160/160`,
 
   // ── Blog ──────────────────────────────────────────────────────────────────
 
-  blogFeaturedHero: '/hero-devops.png',
+  /** Blog index — featured post hero */
+  blogFeaturedHero: 'https://picsum.photos/seed/blog-featured/1200/600',
 
-  blogCardThumb: (_slug: string) => '/hero-devops.png',
+  /** Blog index — article card thumbnails (append slug as seed suffix) */
+  blogCardThumb: (slug: string) => `https://picsum.photos/seed/blog-${slug}/800/450`,
 
-  blogPostHero: (_slug: string) => '/hero-devops.png',
+  /** Blog [slug] — full-width post hero (replaces gradient PostHeroImage) */
+  blogPostHero: (slug: string) => `https://picsum.photos/seed/posthero-${slug}/1600/700`,
 
-  blogAuthorAvatar: '/kamal-hussain.png',
+  /** Blog [slug] — author avatar */
+  blogAuthorAvatar: 'https://i.pravatar.cc/160?img=12',
 
   // ── Book ──────────────────────────────────────────────────────────────────
 
-  bookPortrait: '/kamal-hussain.png',
+  /** Book page — portrait in right column */
+  bookPortrait: 'https://picsum.photos/seed/kamal-book/600/700',
 
   // ── Contact ───────────────────────────────────────────────────────────────
 
-  contactImage: '/contact-hero.png',
+  /** Contact page — right column image */
+  contactImage: 'https://picsum.photos/seed/kamal-contact/600/700',
 } as const
