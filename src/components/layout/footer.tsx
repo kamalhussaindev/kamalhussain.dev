@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
 import { Marquee } from '@/components/ui/marquee'
 import { AUTHOR, SERVICE_SLUGS, SERVICE_LABELS } from '@/lib/constants'
+import { RESOURCE_SLUGS, RESOURCE_LABELS } from '@/lib/resources-data'
 
 const pages = [
   { href: '/about', label: 'About' },
@@ -47,12 +48,12 @@ export function Footer() {
   return (
     <footer className="border-border bg-background mt-auto border-t">
       {/* Available-for-hire marquee */}
-      <div className="border-border border-b py-4">
+      <div className="border-border border-b py-6 md:py-8">
         <Marquee duration={25} gap={64} copies={2}>
           {marqueItems.map((item) => (
             <span
               key={item}
-              className="text-fg-muted flex items-center gap-4 text-sm font-medium tracking-[0.2em] whitespace-nowrap uppercase"
+              className="flex items-center gap-4 text-base font-medium tracking-[0.2em] whitespace-nowrap text-white/70 uppercase md:text-lg"
             >
               <span
                 className="bg-accent-primary h-1 w-1 flex-shrink-0 rounded-full"
@@ -190,23 +191,48 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          {/* NxtAuric */}
+          {/* Resources */}
           <div>
             <h3 className="text-fg-subtle mb-4 text-xs font-semibold tracking-[0.2em] uppercase">
-              NxtAuric
+              Free Resources
             </h3>
-            <p className="text-fg-muted mb-4 text-sm leading-relaxed">
-              The agency I co-founded with a small team of engineers and designers.
-            </p>
-            <a
-              href={AUTHOR.agency}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-primary hover:text-accent-primary/80 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
-            >
-              Visit nxtauric.com
-              <ExternalLink size={11} aria-hidden />
-            </a>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/checklist/kubernetes-production"
+                  className="text-fg-muted hover:text-foreground text-sm leading-snug transition-colors"
+                >
+                  Kubernetes Production Checklist (47 items)
+                </Link>
+              </li>
+              {RESOURCE_SLUGS.map((slug) => (
+                <li key={slug}>
+                  <Link
+                    href={`/resources/${slug}`}
+                    className="text-fg-muted hover:text-foreground text-sm leading-snug transition-colors"
+                  >
+                    {RESOURCE_LABELS[slug]}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <h3 className="text-fg-subtle mb-4 text-xs font-semibold tracking-[0.2em] uppercase">
+                NxtAuric
+              </h3>
+              <p className="text-fg-muted mb-4 text-sm leading-relaxed">
+                The agency I co-founded with a small team of engineers and designers.
+              </p>
+              <a
+                href={AUTHOR.agency}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-primary hover:text-accent-primary/80 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
+              >
+                Visit nxtauric.com
+                <ExternalLink size={11} aria-hidden />
+              </a>
+            </div>
           </div>
         </div>
 

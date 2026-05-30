@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Download } from 'lucide-react'
 import { SITE_URL, SERVICE_SLUGS, SERVICE_LABELS } from '@/lib/constants'
 import { SERVICES_DATA, type ServiceSlug } from '@/lib/services-data'
 import { PLACEHOLDERS } from '@/lib/placeholders'
@@ -236,6 +236,32 @@ export default async function ServicePage({
                 </div>
               </div>
             </section>
+
+            {/* Kubernetes checklist callout — only on the K8s service page */}
+            {slug === 'kubernetes-platform-engineering' && (
+              <div className="border-accent-primary/20 bg-accent-primary/5 flex flex-col gap-4 rounded-xl border p-5 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <div className="mb-1 flex items-center gap-2">
+                    <Download size={13} className="text-accent-primary" aria-hidden />
+                    <p className="text-accent-primary text-xs font-semibold tracking-[0.15em] uppercase">
+                      Free resource
+                    </p>
+                  </div>
+                  <p className="text-foreground text-sm font-semibold">
+                    Production Kubernetes Checklist (47 items)
+                  </p>
+                  <p className="text-fg-muted mt-0.5 text-sm">
+                    Everything your cluster needs before it touches production.
+                  </p>
+                </div>
+                <Link
+                  href="/checklist/kubernetes-production"
+                  className="border-accent-primary/40 text-accent-primary hover:bg-accent-primary/10 flex-shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition-colors"
+                >
+                  Download PDF →
+                </Link>
+              </div>
+            )}
 
             {/* FAQ */}
             <section>

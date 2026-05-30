@@ -89,16 +89,16 @@ export function Hero() {
         <div className="overflow-hidden">
           <h1
             ref={headlineRef}
-            className="text-hero text-foreground max-w-[18ch] font-bold tracking-[-0.025em] [text-wrap:balance]"
+            className="text-hero text-foreground font-bold tracking-[-0.025em]"
           >
-            Kubernetes platforms that don&apos;t break.
+            Hi, I&apos;m Kamal Hussain.
           </h1>
         </div>
 
-        <p ref={subRef} className="text-fg-muted mt-8 max-w-xl text-lg leading-relaxed">
-          Kamal Hussain — freelance DevOps &amp; cloud engineer. Production-grade
-          infrastructure for startups that can&apos;t afford to break. I help teams ship
-          faster and sleep better.
+        <p ref={subRef} className="text-fg-muted mt-8 max-w-2xl text-lg leading-relaxed">
+          I&apos;m a freelance DevOps &amp; cloud engineer. I help startups and
+          engineering teams ship faster, cut their cloud bill, and stop firefighting their
+          infrastructure — so they can focus on building product, not putting out fires.
         </p>
 
         <div ref={ctaRef} className="mt-10 flex flex-wrap gap-3">

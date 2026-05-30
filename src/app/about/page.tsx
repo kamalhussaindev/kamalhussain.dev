@@ -95,39 +95,13 @@ export default function AboutPage() {
           <h1 className="text-hero text-foreground mb-10 max-w-[22ch] font-bold tracking-[-0.04em] [text-wrap:balance]">
             Kamal Hussain
           </h1>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-[1fr_280px]">
-            <div>
-              <p className="text-fg-muted mb-2 text-xl tracking-[-0.01em]">
-                Freelance DevOps &amp; Cloud Engineer
-              </p>
-              <p className="text-fg-subtle text-sm">
-                Rawalpindi, Pakistan · Remote worldwide · Available for new projects
-              </p>
-            </div>
-            <div className="border-border grid grid-cols-2 gap-px overflow-hidden rounded-xl border">
-              <div className="bg-bg-raised px-5 py-4">
-                <p className="text-foreground text-2xl font-bold tracking-[-0.02em]">
-                  5+
-                </p>
-                <p className="text-fg-subtle mt-0.5 text-xs">Years in DevOps</p>
-              </div>
-              <div className="bg-bg-raised px-5 py-4">
-                <p className="text-foreground text-2xl font-bold tracking-[-0.02em]">
-                  30+
-                </p>
-                <p className="text-fg-subtle mt-0.5 text-xs">Projects shipped</p>
-              </div>
-              <div className="bg-bg-raised px-5 py-4">
-                <p className="text-foreground text-2xl font-bold tracking-[-0.02em]">3</p>
-                <p className="text-fg-subtle mt-0.5 text-xs">Continents served</p>
-              </div>
-              <div className="bg-bg-raised px-5 py-4">
-                <p className="text-accent-primary text-2xl font-bold tracking-[-0.02em]">
-                  Open
-                </p>
-                <p className="text-fg-subtle mt-0.5 text-xs">New projects</p>
-              </div>
-            </div>
+          <div>
+            <p className="text-fg-muted mb-2 text-xl tracking-[-0.01em]">
+              Freelance DevOps &amp; Cloud Engineer
+            </p>
+            <p className="text-fg-subtle text-sm">
+              Rawalpindi, Pakistan · Remote worldwide · Available for new projects
+            </p>
           </div>
         </div>
 
@@ -287,51 +261,6 @@ export default function AboutPage() {
                 also needs frontend support. You still deal with one person. That&apos;s
                 intentional.
               </p>
-            </div>
-
-            {/* People I work with */}
-            <div className="border-border mt-12 border-t pt-10">
-              <h3 className="text-fg-subtle mb-6 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
-                People I work with
-              </h3>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                {[
-                  {
-                    name: 'Sana Mirza',
-                    role: 'UI/UX Designer',
-                    org: 'NxtAuric',
-                    photo: '/team-3.jpg',
-                  },
-                  {
-                    name: 'Omar Farooq',
-                    role: 'Full-Stack Developer',
-                    org: 'NxtAuric',
-                    photo: '/team-4.jpg',
-                  },
-                  {
-                    name: 'Bilal Ahmed',
-                    role: 'Frontend Developer',
-                    org: 'NxtAuric',
-                    photo: '/team-5.jpg',
-                  },
-                ].map((person) => (
-                  <div
-                    key={person.name}
-                    className="border-border bg-bg-raised rounded-xl border px-5 py-4"
-                  >
-                    <Image
-                      src={person.photo}
-                      alt={person.name}
-                      width={40}
-                      height={40}
-                      className="mb-3 h-10 w-10 rounded-full object-cover object-top"
-                    />
-                    <p className="text-foreground text-sm font-semibold">{person.name}</p>
-                    <p className="text-fg-muted mt-0.5 text-xs">{person.role}</p>
-                    <p className="text-fg-subtle mt-0.5 text-xs">{person.org}</p>
-                  </div>
-                ))}
-              </div>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">

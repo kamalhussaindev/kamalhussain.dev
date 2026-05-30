@@ -6,6 +6,7 @@ import { Hero } from '@/components/home/hero'
 import { Stats } from '@/components/home/stats'
 import { ServicesStrip } from '@/components/home/services-strip'
 import { HowIWork } from '@/components/home/how-i-work'
+import { ScopingCalculator } from '@/components/home/scoping-calculator'
 import { WorkBento } from '@/components/home/work-bento'
 import { TechMarquee } from '@/components/home/tech-marquee'
 import { NxtAuricStrip } from '@/components/home/nxtauric-strip'
@@ -33,6 +34,7 @@ export default function HomePage() {
       <Stats />
       <ServicesStrip />
       <HowIWork />
+      <ScopingCalculator />
       <WorkBento />
       <TechMarquee />
       <Testimonials />
@@ -130,6 +132,24 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Slim checklist callout */}
+      <div className="border-border bg-bg-raised/30 border-t">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+          <p className="text-fg-muted text-sm">
+            <span className="text-fg-subtle font-mono text-xs tracking-widest uppercase">
+              Free download
+            </span>{' '}
+            · The Production Kubernetes Checklist (47 items)
+          </p>
+          <Link
+            href="/checklist/kubernetes-production"
+            className="text-accent-primary hover:text-accent-primary/80 flex flex-shrink-0 items-center gap-1 text-sm font-medium transition-colors"
+          >
+            Get the PDF <ArrowRight size={13} aria-hidden />
+          </Link>
+        </div>
+      </div>
     </>
   )
 }

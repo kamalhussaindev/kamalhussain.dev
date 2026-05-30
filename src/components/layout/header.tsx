@@ -11,6 +11,7 @@ import { StatusPill } from '@/components/ui/status-pill'
 const navLinks = [
   { href: '/services', label: 'Services' },
   { href: '/work', label: 'Work' },
+  { href: '/resources', label: 'Resources' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
 ]

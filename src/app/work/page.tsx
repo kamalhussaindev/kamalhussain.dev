@@ -7,11 +7,14 @@ import { WORK_DATA, WORK_SLUGS } from '@/lib/work-data'
 import { PLACEHOLDERS } from '@/lib/placeholders'
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Real Projects, Real Results',
+  title: 'Engineering Case Studies — Kamal Hussain',
   description:
-    'Real DevOps and cloud engineering projects with measurable results — Kubernetes platforms, CI/CD pipelines, AWS cost optimization, and more.',
+    'Self-directed engineering builds and methodology demonstrations — EKS, Kubernetes observability, Terraform, CI/CD, and more. Real metrics, documented decisions.',
   alternates: { canonical: `${SITE_URL}/work` },
-  openGraph: { title: 'Case Studies | Kamal Hussain', url: `${SITE_URL}/work` },
+  openGraph: {
+    title: 'Engineering Case Studies | Kamal Hussain',
+    url: `${SITE_URL}/work`,
+  },
 }
 
 export default function WorkPage() {
@@ -27,14 +30,15 @@ export default function WorkPage() {
 
       <div className="mb-14 max-w-2xl">
         <p className="text-accent-primary mb-4 font-mono text-xs font-medium tracking-[0.2em] uppercase">
-          Portfolio
+          Engineering work
         </p>
         <h1 className="max-w-[22ch] text-4xl font-bold tracking-[-0.03em] [text-wrap:balance]">
-          Case Studies
+          Engineering Case Studies
         </h1>
         <p className="text-fg-muted mt-5 text-lg leading-relaxed">
-          A selection of projects with real metrics. Client names anonymised where
-          requested; industries and results are accurate.
+          Self-directed engineering builds that demonstrate my methodology for production
+          infrastructure. Real metrics, documented decisions, honest framing. Client
+          engagements will be added here as work completes and clients permit.
         </p>
       </div>
 
@@ -102,11 +106,11 @@ export default function WorkPage() {
       {/* More work CTA */}
       <div className="card-surface mx-auto mt-16 max-w-lg rounded-xl px-6 py-8 text-center">
         <p className="text-foreground mb-1 text-sm font-medium">
-          More case studies coming soon
+          More case studies in progress
         </p>
         <p className="text-fg-muted mb-5 text-sm">
-          Most client work stays under NDA. Book a call to hear about specific engagements
-          relevant to your situation.
+          Additional engineering builds and real client case studies will be added here as
+          engagements complete. Book a call to discuss your specific situation directly.
         </p>
         <Link
           href="/book"

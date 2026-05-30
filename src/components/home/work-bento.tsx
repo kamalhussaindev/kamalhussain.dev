@@ -5,31 +5,14 @@ import { PLACEHOLDERS } from '@/lib/placeholders'
 
 const CASE_STUDIES = [
   {
-    metric: '47 min → 4 min',
-    metricLabel: 'Deploy time',
-    title: 'CI/CD overhaul for a Series-A fintech',
+    metric: '$6.50',
+    metricLabel: 'Total AWS cost (full build)',
+    title: 'PulseHealth EKS: production observability platform',
     description:
-      'Replaced a brittle Jenkins monolith with GitHub Actions + ArgoCD. Multi-environment promotion gates, automated smoke tests, zero-downtime deploys.',
-    tags: ['GitHub Actions', 'ArgoCD', 'Kubernetes'],
-    slug: 'fintech-cicd-overhaul',
-  },
-  {
-    metric: '−42%',
-    metricLabel: 'Infrastructure cost',
-    title: 'AWS cost optimization & Terraform IaC migration',
-    description:
-      'Audited and right-sized a $14k/month AWS estate. Migrated all resources to Terraform, introduced spot instances and savings plans.',
-    tags: ['AWS', 'Terraform', 'Cost Optimization'],
-    slug: 'aws-cost-optimization',
-  },
-  {
-    metric: '99.97%',
-    metricLabel: 'Uptime SLO achieved',
-    title: 'EKS production platform with full observability',
-    description:
-      'Designed and deployed a multi-AZ EKS cluster with Prometheus, Grafana, and Loki. Custom dashboards and PagerDuty alert routing.',
-    tags: ['EKS', 'Prometheus', 'Grafana'],
-    slug: 'eks-production-platform',
+      'Self-directed engineering build: production EKS cluster with Prometheus, Grafana, and Loki on AWS. Real costs and latency measurements from the running platform — not a client engagement.',
+    tags: ['EKS', 'Prometheus', 'Grafana', 'Loki', 'Terraform'],
+    slug: 'pulsehealth-eks',
+    label: 'Engineering case study',
   },
 ]
 
@@ -49,14 +32,12 @@ export function WorkBento() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-          {CASE_STUDIES.map((cs, i) => (
+        <div className="grid grid-cols-1 gap-3">
+          {CASE_STUDIES.map((cs) => (
             <Link
               key={cs.slug}
               href={`/work/${cs.slug}`}
-              className={`card-surface group flex flex-col overflow-hidden rounded-xl p-6 transition-all ${
-                i === 0 ? 'lg:col-span-2' : ''
-              }`}
+              className="card-surface group flex flex-col overflow-hidden rounded-xl p-6 transition-all"
             >
               {/* PLACEHOLDER-IMG: Replace picsum with real project screenshots */}
               <div className="relative -mx-6 -mt-6 mb-4 h-36 overflow-hidden rounded-t-xl">
@@ -73,6 +54,11 @@ export function WorkBento() {
                       'linear-gradient(to bottom, transparent 50%, var(--bg-raised) 100%)',
                   }}
                 />
+                {'label' in cs && cs.label && (
+                  <span className="bg-bg-overlay/80 text-fg-muted absolute top-3 left-3 rounded-full px-2.5 py-0.5 font-mono text-[10px] font-medium tracking-wide backdrop-blur-sm">
+                    {cs.label}
+                  </span>
+                )}
               </div>
 
               <div className="flex items-start justify-between gap-4">
@@ -95,7 +81,7 @@ export function WorkBento() {
                 <h3 className="text-foreground group-hover:text-accent-primary text-base leading-snug font-semibold transition-colors">
                   {cs.title}
                 </h3>
-                <p className="text-fg-muted mt-2 line-clamp-2 text-sm leading-relaxed">
+                <p className="text-fg-muted mt-2 text-sm leading-relaxed">
                   {cs.description}
                 </p>
               </div>

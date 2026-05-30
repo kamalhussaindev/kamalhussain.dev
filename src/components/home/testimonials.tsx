@@ -10,9 +10,8 @@ interface Testimonial {
   flag: 'REAL' | 'PLACEHOLDER'
 }
 
-// [CONFIRM WITH CLIENT — entry is anonymized pending written permission]
-// When Kamal gets sign-off from the fintech CTO, replace role with their
-// real name and update flag to 'REAL' if desired.
+// No confirmed testimonials yet — awaiting written sign-off from clients.
+// Set flag to 'REAL' only after receiving the client's exact wording in writing.
 const TESTIMONIALS: Testimonial[] = [
   {
     quote:
@@ -20,8 +19,8 @@ const TESTIMONIALS: Testimonial[] = [
     role: 'CTO',
     context: 'Series-A Fintech · 8-week engagement',
     service: 'CI/CD Overhaul',
-    caseStudyLink: '/work/fintech-cicd-overhaul/',
-    flag: 'REAL',
+    caseStudyLink: '/work/',
+    flag: 'PLACEHOLDER',
   },
   {
     // [PLACEHOLDER — hidden by default until real quote confirmed with client]
@@ -30,7 +29,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: 'VP of Engineering',
     context: 'B2B SaaS · 12-week engagement',
     service: 'AWS Cost Optimization',
-    caseStudyLink: '/work/aws-cost-optimization/',
+    caseStudyLink: '/work/',
     flag: 'PLACEHOLDER',
   },
   {
@@ -40,7 +39,7 @@ const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     context: 'DevTool Startup · 6-week engagement',
     service: 'EKS Platform',
-    caseStudyLink: '/work/aws-cost-optimization/',
+    caseStudyLink: '/work/',
     flag: 'PLACEHOLDER',
   },
 ]
@@ -86,6 +85,7 @@ function TestimonialCard({ t, draft }: { t: Testimonial; draft?: boolean }) {
 
 export function Testimonials() {
   const real = TESTIMONIALS.filter((t) => t.flag === 'REAL')
+  if (real.length === 0 && !SHOW_PLACEHOLDER_TESTIMONIALS) return null
   const placeholders = TESTIMONIALS.filter((t) => t.flag === 'PLACEHOLDER')
 
   return (

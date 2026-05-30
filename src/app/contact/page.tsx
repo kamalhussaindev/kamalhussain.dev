@@ -5,6 +5,7 @@ import { Calendar, Mail } from 'lucide-react'
 import { SITE_URL, AUTHOR } from '@/lib/constants'
 import { PLACEHOLDERS } from '@/lib/placeholders'
 import { ContactForm } from '@/components/contact/contact-form'
+import { ScopingCalculator } from '@/components/home/scoping-calculator'
 
 export const metadata: Metadata = {
   title: 'Contact — Start a Project',
@@ -38,6 +39,8 @@ export default function ContactPage() {
           obligation.
         </p>
       </div>
+
+      <ScopingCalculator compact />
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
         {/* Form */}

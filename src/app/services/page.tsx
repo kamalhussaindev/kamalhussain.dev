@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import { SITE_URL, SERVICE_SLUGS, SERVICE_LABELS } from '@/lib/constants'
 import { SERVICES_DATA, type ServiceSlug } from '@/lib/services-data'
 import { PLACEHOLDERS } from '@/lib/placeholders'
+import { ScopingCalculator } from '@/components/home/scoping-calculator'
 
 export const metadata: Metadata = {
   title: 'Services — DevOps, Kubernetes, CI/CD & AWS',
@@ -181,6 +182,8 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
+
+      <ScopingCalculator compact />
 
       {/* Bottom CTA */}
       <div className="card-surface rounded-xl px-8 py-8">

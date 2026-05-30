@@ -1,14 +1,6 @@
 import { ExternalLink } from 'lucide-react'
 import { AUTHOR } from '@/lib/constants'
 
-// [CONFIRM WITH KAMAL] — verify all four numbers before launch
-const NXTAURIC_STATS = [
-  { value: '6', label: 'Team members' },
-  { value: '8', label: 'Services offered' },
-  { value: '30+', label: 'Projects shipped' },
-  { value: '3', label: 'Continents served' },
-]
-
 export function NxtAuricStrip() {
   return (
     <section className="border-border border-t">
@@ -35,53 +27,40 @@ export function NxtAuricStrip() {
             nxtauric · the agency i co-founded
           </p>
 
-          {/* PLACEHOLDER — replace with real NxtAuric brand image when available */}
+          {/* TODO: replace with NxtAuric brand SVG when supplied */}
           <div
-            className="border-border/30 relative mb-14 h-48 overflow-hidden rounded-xl border"
-            aria-hidden
+            className="relative mb-14 h-[260px] overflow-hidden rounded-2xl md:h-[320px]"
             style={{
               background:
-                'linear-gradient(135deg, oklch(0.11 0.02 280) 0%, oklch(0.15 0.05 270) 45%, oklch(0.10 0.015 300) 100%)',
+                'linear-gradient(135deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%)',
             }}
           >
-            {/* Violet glow left */}
+            {/* Subtle radial accent */}
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  'radial-gradient(ellipse 55% 90% at 15% 50%, oklch(0.55 0.22 280 / 0.18) 0%, transparent 70%)',
+                  'radial-gradient(circle at 30% 50%, rgba(255,77,46,0.08), transparent 60%)',
               }}
             />
-            {/* Red glow right */}
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  'radial-gradient(ellipse 40% 80% at 85% 50%, oklch(0.63 0.24 24 / 0.10) 0%, transparent 70%)',
-              }}
-            />
-            {/* Grain texture */}
-            <svg
-              className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.06]"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <filter id="nxtauric-noise">
-                <feTurbulence
-                  type="fractalNoise"
-                  baseFrequency="0.8"
-                  numOctaves="4"
-                  stitchTiles="stitch"
-                />
-              </filter>
-              <rect width="100%" height="100%" filter="url(#nxtauric-noise)" />
-            </svg>
-            {/* Watermark */}
-            <span className="absolute right-6 bottom-4 font-mono text-sm font-bold tracking-[-0.02em] text-white/8 select-none">
+
+            {/* Centered wordmark */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex items-baseline gap-1">
+                <span className="text-5xl font-bold tracking-tight text-white/90 md:text-7xl">
+                  NxtAuric
+                </span>
+                <span className="bg-accent-primary mb-2 h-3 w-3 flex-shrink-0 rounded-sm md:h-4 md:w-4" />
+              </div>
+            </div>
+
+            {/* Corner mark */}
+            <div className="absolute right-4 bottom-4 font-mono text-xs tracking-wide text-white/30">
               NxtAuric.
-            </span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
             {/* Left — wordmark + CTA */}
             <div className="flex flex-col gap-5">
               <div>
@@ -107,7 +86,7 @@ export function NxtAuricStrip() {
               </a>
             </div>
 
-            {/* Middle — context */}
+            {/* Right — context */}
             <div className="flex flex-col justify-start">
               <p className="text-fg-muted text-lg leading-relaxed">
                 When a project needs more than one person — a full team of engineers,
@@ -121,21 +100,6 @@ export function NxtAuricStrip() {
                 freelancer can deliver — without losing the directness and accountability
                 of working with an individual.
               </p>
-            </div>
-
-            {/* Right — stats */}
-            <div className="border-border/50 grid grid-cols-2 gap-px overflow-hidden rounded-xl border">
-              {NXTAURIC_STATS.map(({ value, label }) => (
-                <div
-                  key={label}
-                  className="bg-bg-raised/40 flex flex-col gap-1 px-5 py-5"
-                >
-                  <span className="text-foreground text-2xl font-bold tracking-[-0.02em]">
-                    {value}
-                  </span>
-                  <span className="text-fg-subtle text-xs">{label}</span>
-                </div>
-              ))}
             </div>
           </div>
         </div>

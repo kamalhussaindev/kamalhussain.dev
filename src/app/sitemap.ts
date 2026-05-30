@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL, SERVICE_SLUGS } from '@/lib/constants'
+import { RESOURCE_SLUGS } from '@/lib/resources-data'
 
 export const dynamic = 'force-static'
 
@@ -9,7 +10,7 @@ const BLOG_SLUGS = [
   'terraform-vs-pulumi-2026',
 ]
 
-const WORK_SLUGS = ['fintech-cicd-overhaul', 'aws-cost-optimization']
+const WORK_SLUGS = ['pulsehealth-eks']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -64,6 +65,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: `${SITE_URL}/checklist/kubernetes-production`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/resources`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 
   const servicePages: MetadataRoute.Sitemap = SERVICE_SLUGS.map((slug) => ({
@@ -87,5 +100,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...servicePages, ...blogPages, ...workPages]
+  const resourcePages: MetadataRoute.Sitemap = RESOURCE_SLUGS.map((slug) => ({
+    url: `${SITE_URL}/resources/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }))
+
+  return [...staticPages, ...servicePages, ...blogPages, ...workPages, ...resourcePages]
 }

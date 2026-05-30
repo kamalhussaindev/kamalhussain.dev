@@ -1,0 +1,55 @@
+# ── Next.js static export on Apache / Hostinger ──────────────────────────────
+
+Options -Indexes +FollowSymLinks
+
+# 404 handler
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Always let _next/ assets through — never rewrite them
+    RewriteRule ^_next/ - [L]
+
+    # 2. Serve real files and directories as-is
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+</IfModule>
+
+# MIME types — Apache sometimes mis-serves JS as text/plain which browsers reject
+<IfModule mod_mime.c>
+    AddType text/css                  .css
+    AddType application/javascript    .js
+    AddType application/json          .json
+    AddType font/woff2                .woff2
+    AddType font/woff                 .woff
+    AddType image/svg+xml             .svg
+    AddType image/webp                .webp
+</IfModule>
+
+# Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json font/woff2
+</IfModule>
+
+# Long-lived cache for hashed Next.js assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    <FilesMatch "\.(css|js|woff2|woff|png|jpg|jpeg|svg|webp|ico)$">
+        ExpiresDefault "access plus 1 year"
+    </FilesMatch>
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
