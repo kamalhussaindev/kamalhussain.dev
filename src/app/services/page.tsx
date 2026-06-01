@@ -1,21 +1,21 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import {
+  ArrowRight,
+  Hexagon,
+  GitMerge,
+  Cloud,
+  BarChart2,
+  LayoutGrid,
+  Bot,
+  FileCode,
+  Wrench,
+  Activity,
+  ClipboardCheck,
+} from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
 import { TIERS, type Tier } from '@/lib/tiers-config'
 import { ServiceCard } from '@/components/services/service-card'
-import {
-  KubernetesVisual,
-  CicdVisual,
-  AwsVisual,
-  ObservabilityVisual,
-  AiChatVisual,
-  CustomWebVisual,
-  WordpressVisual,
-  TerminalVisual,
-  UptimeVisual,
-  AuditVisual,
-} from '@/components/services/card-visuals'
 import { ScopingCalculator } from '@/components/home/scoping-calculator'
 
 export const metadata: Metadata = {
@@ -26,17 +26,17 @@ export const metadata: Metadata = {
   openGraph: { title: 'Services — Kamal Hussain', url: `${SITE_URL}/services` },
 }
 
-const CARD_VISUALS: Record<string, React.ReactNode> = {
-  'kubernetes-platform-engineering': <KubernetesVisual />,
-  'cicd-pipeline-engineering': <CicdVisual />,
-  'aws-terraform-infrastructure': <AwsVisual />,
-  'observability-engineering': <ObservabilityVisual />,
-  'ai-chatbots': <AiChatVisual />,
-  'custom-web-saas': <CustomWebVisual />,
-  'wordpress-web-development': <WordpressVisual />,
-  'server-troubleshooting': <TerminalVisual />,
-  'hosting-management': <UptimeVisual />,
-  'devops-consulting-audits': <AuditVisual />,
+const CARD_ICONS: Record<string, React.ReactNode> = {
+  'kubernetes-platform-engineering': <Hexagon size={28} strokeWidth={1.5} aria-hidden />,
+  'cicd-pipeline-engineering': <GitMerge size={28} strokeWidth={1.5} aria-hidden />,
+  'aws-terraform-infrastructure': <Cloud size={28} strokeWidth={1.5} aria-hidden />,
+  'observability-engineering': <BarChart2 size={28} strokeWidth={1.5} aria-hidden />,
+  'custom-web-saas': <LayoutGrid size={28} strokeWidth={1.5} aria-hidden />,
+  'ai-chatbots': <Bot size={28} strokeWidth={1.5} aria-hidden />,
+  'wordpress-web-development': <FileCode size={28} strokeWidth={1.5} aria-hidden />,
+  'server-troubleshooting': <Wrench size={28} strokeWidth={1.5} aria-hidden />,
+  'hosting-management': <Activity size={28} strokeWidth={1.5} aria-hidden />,
+  'devops-consulting-audits': <ClipboardCheck size={28} strokeWidth={1.5} aria-hidden />,
 }
 
 const ENGAGEMENT_MODELS = [
@@ -125,7 +125,7 @@ function Tier1Section({ tier }: { tier: Tier }) {
             key={service.slug}
             title={service.title}
             description={service.description}
-            visual={CARD_VISUALS[service.slug]}
+            icon={CARD_ICONS[service.slug]}
             tier={1}
             href={service.href}
             stack={service.stack}
@@ -146,7 +146,7 @@ function Tier2Section({ tier }: { tier: Tier }) {
             key={service.slug}
             title={service.title}
             description={service.description}
-            visual={CARD_VISUALS[service.slug]}
+            icon={CARD_ICONS[service.slug]}
             tier={2}
             href={service.href}
             stack={service.stack}
@@ -167,7 +167,7 @@ function Tier3Section({ tier }: { tier: Tier }) {
             key={service.slug}
             title={service.title}
             description={service.description}
-            visual={CARD_VISUALS[service.slug]}
+            icon={CARD_ICONS[service.slug]}
             tier={3}
             href={service.href}
             stack={service.stack}

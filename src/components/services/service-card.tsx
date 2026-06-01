@@ -4,6 +4,7 @@ export interface ServiceCardProps {
   title: string
   description: string
   visual?: React.ReactNode
+  icon?: React.ReactNode
   tier: 1 | 2 | 3
   href: string
   stack?: string[]
@@ -11,9 +12,9 @@ export interface ServiceCardProps {
 }
 
 const CARD_STYLES = {
-  1: 'group card-surface border-border hover:border-accent-primary/40 flex flex-col gap-5 rounded-xl border p-6 transition-all',
-  2: 'group border-border/60 bg-bg-raised/30 flex flex-col gap-4 rounded-xl border p-5 transition-colors hover:border-border',
-  3: 'group border-border/40 flex flex-col gap-3 rounded-xl border bg-transparent p-4 transition-colors hover:border-border/60',
+  1: 'group card-surface border-border hover:border-accent-primary/40 flex flex-col gap-4 rounded-xl border p-6 transition-all',
+  2: 'group card-surface border-border hover:border-accent-primary/30 flex flex-col gap-4 rounded-xl border p-5 transition-all',
+  3: 'group card-surface border-border/60 hover:border-accent-primary/20 flex flex-col gap-3 rounded-xl border p-4 transition-all',
 } as const
 
 const VISUAL_HEIGHT = {
@@ -29,14 +30,14 @@ const VISUAL_BORDER = {
 } as const
 
 const TITLE_STYLES = {
-  1: 'text-foreground group-hover:text-accent-primary text-lg leading-snug font-bold tracking-[-0.02em] transition-colors',
-  2: 'text-foreground text-base leading-snug font-semibold',
-  3: 'text-fg-muted text-sm leading-snug font-semibold',
+  1: 'text-foreground group-hover:text-accent-primary text-sm leading-snug font-medium tracking-[-0.01em] transition-colors',
+  2: 'text-foreground text-sm leading-snug font-medium',
+  3: 'text-fg-muted text-sm leading-snug font-medium',
 } as const
 
 const DESC_STYLES = {
-  1: 'text-fg-muted mt-2 text-sm leading-relaxed',
-  2: 'text-fg-muted mt-2 text-sm leading-relaxed',
+  1: 'text-fg-muted mt-1.5 text-xs leading-relaxed',
+  2: 'text-fg-muted mt-1.5 text-xs leading-relaxed',
   3: 'text-fg-dim mt-1.5 text-xs leading-relaxed',
 } as const
 
@@ -56,6 +57,7 @@ export function ServiceCard({
   title,
   description,
   visual,
+  icon,
   tier,
   href,
   stack,
@@ -65,7 +67,9 @@ export function ServiceCard({
 
   return (
     <Link href={href} className={CARD_STYLES[tier]}>
-      {visual && (
+      {icon && !visual && <div className="text-accent-primary">{icon}</div>}
+
+      {visual && !icon && (
         <div
           className={`overflow-hidden rounded-lg border ${VISUAL_HEIGHT[tier]} ${VISUAL_BORDER[tier]}`}
         >

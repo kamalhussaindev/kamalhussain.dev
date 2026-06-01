@@ -26,8 +26,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'kubernetes-platform-engineering',
         title: 'Kubernetes Platform Engineering',
-        description:
-          'Production-ready EKS clusters with GitOps, RBAC, autoscaling, and observability baked in from day one.',
+        description: 'Production clusters that scale and self-heal.',
         stack: ['Kubernetes', 'EKS', 'ArgoCD', 'Terraform'],
         href: '/services/kubernetes-platform-engineering',
         hasDetailPage: true,
@@ -35,8 +34,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'cicd-pipeline-engineering',
         title: 'CI/CD Pipeline Engineering',
-        description:
-          'GitHub Actions and GitLab CI pipelines that deploy in minutes, not hours — and stay green.',
+        description: 'Ship code automatically, safely, fast.',
         stack: ['GitHub Actions', 'ArgoCD', 'Helm', 'OIDC'],
         href: '/services/cicd-pipeline-engineering',
         hasDetailPage: true,
@@ -44,8 +42,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'aws-terraform-infrastructure',
         title: 'AWS Infrastructure with Terraform',
-        description:
-          'Your AWS estate — reproducible, auditable, cost-visible, and safe to change.',
+        description: 'Cloud architecture built to last.',
         stack: ['Terraform', 'AWS', 'Atlantis', 'Infracost'],
         href: '/services/aws-terraform-infrastructure',
         hasDetailPage: true,
@@ -53,8 +50,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'observability-engineering',
         title: 'Observability Engineering',
-        description:
-          'See everything. Alert on what matters. Prometheus, Grafana, Loki, and OpenTelemetry — configured for your stack.',
+        description: 'See everything. Alert on what matters.',
         stack: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry'],
         href: '/services/observability-engineering',
         hasDetailPage: true,
@@ -70,8 +66,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'custom-web-saas',
         title: 'Custom Web & SaaS',
-        description:
-          'From landing page to full SaaS product — Next.js, APIs, auth, payments, and deployment in a single engagement.',
+        description: 'Web apps and products from scratch.',
         stack: ['Next.js', 'React', 'PostgreSQL', 'Stripe'],
         href: '/contact',
         hasDetailPage: false,
@@ -79,8 +74,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'ai-chatbots',
         title: 'AI Chatbots',
-        description:
-          'LLM-powered assistants trained on your docs, CRM, or knowledge base. Deployed as a real product feature, not a demo.',
+        description: 'Smart assistants wired into your stack.',
         stack: ['OpenAI API', 'LangChain', 'RAG', 'Next.js'],
         href: '/contact',
         hasDetailPage: false,
@@ -88,8 +82,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'wordpress-web-development',
         title: 'WordPress Sites',
-        description:
-          'Fast, secure WordPress sites with CI/CD, caching, CDN, and SEO foundations built in — by an engineer, not a page builder.',
+        description: 'Fast, maintainable sites you control.',
         stack: ['WordPress', 'WooCommerce', 'Cloudflare', 'ACF'],
         href: '/contact',
         hasDetailPage: false,
@@ -105,8 +98,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'server-troubleshooting',
         title: 'Server Troubleshooting',
-        description:
-          'Production incident response — Linux, Docker, Kubernetes, AWS. Fixed fast, root-cause writeup included.',
+        description: "Diagnose and fix what's broken.",
         stack: ['Linux', 'Docker', 'AWS', 'Kubernetes'],
         href: '/contact',
         hasDetailPage: false,
@@ -114,8 +106,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'hosting-management',
         title: 'Hosting Management',
-        description:
-          'Managed hosting operations on retainer: updates, backups, uptime monitoring, and scaling — handled for you.',
+        description: 'Monitoring and uptime, handled.',
         stack: ['AWS', 'DigitalOcean', 'Cloudflare', 'Nginx'],
         href: '/contact',
         hasDetailPage: false,
@@ -123,8 +114,7 @@ export const TIERS: Tier[] = [
       {
         slug: 'devops-consulting-audits',
         title: 'DevOps Consulting & Audits',
-        description:
-          'An independent eye on your infrastructure — findings ranked by risk with a phased remediation roadmap.',
+        description: 'An independent eye on your infrastructure.',
         stack: ['AWS', 'Kubernetes', 'Terraform', 'tfsec'],
         href: '/contact',
         hasDetailPage: false,
