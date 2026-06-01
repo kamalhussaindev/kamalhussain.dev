@@ -1,12 +1,12 @@
 import Link from 'next/link'
+import { ArrowUpRight, Boxes, GitBranch, Cloud } from 'lucide-react'
 import type { LucideProps } from 'lucide-react'
-import { ArrowUpRight, Boxes, GitBranch, BarChart3 } from 'lucide-react'
 
 type LucideIcon = React.ForwardRefExoticComponent<
   LucideProps & React.RefAttributes<SVGSVGElement>
 >
 
-const HOMEPAGE_SERVICES: {
+const TIER1_SERVICES: {
   slug: string
   title: string
   description: string
@@ -20,18 +20,18 @@ const HOMEPAGE_SERVICES: {
     Icon: Boxes,
   },
   {
-    slug: 'observability-engineering',
-    title: 'Observability Engineering',
-    description:
-      'Prometheus, Grafana, Loki, and OpenTelemetry stacks that surface problems before your users do.',
-    Icon: BarChart3,
-  },
-  {
     slug: 'cicd-pipeline-engineering',
     title: 'CI/CD Pipeline Engineering',
     description:
       'GitHub Actions and GitLab CI pipelines that deploy in minutes, not hours.',
     Icon: GitBranch,
+  },
+  {
+    slug: 'aws-terraform-infrastructure',
+    title: 'AWS Infrastructure with Terraform',
+    description:
+      'Your AWS estate — reproducible, auditable, cost-visible, and safe to change.',
+    Icon: Cloud,
   },
 ]
 
@@ -40,9 +40,14 @@ export function ServicesStrip() {
     <section className="border-border border-t">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32 lg:px-8 lg:py-40">
         <div className="mb-12 flex items-end justify-between">
-          <h2 className="text-fg-subtle font-mono text-xs font-semibold tracking-[0.2em] uppercase">
-            services
-          </h2>
+          <div>
+            <p className="text-accent-primary mb-1 font-mono text-xs font-bold tracking-[0.2em] uppercase">
+              Tier 01
+            </p>
+            <h2 className="text-fg-subtle font-mono text-xs font-semibold tracking-[0.2em] uppercase">
+              Cloud & DevOps Engineering
+            </h2>
+          </div>
           <Link
             href="/services"
             className="text-fg-muted hover:text-foreground flex items-center gap-1 text-sm transition-colors"
@@ -52,7 +57,7 @@ export function ServicesStrip() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {HOMEPAGE_SERVICES.map(({ slug, title, description, Icon }) => (
+          {TIER1_SERVICES.map(({ slug, title, description, Icon }) => (
             <Link
               key={slug}
               href={`/services/${slug}`}
@@ -80,6 +85,31 @@ export function ServicesStrip() {
             </Link>
           ))}
         </div>
+
+        {/* Compact secondary row — links to full services page for Tier 2 & 3 */}
+        <p className="text-fg-dim mt-8 text-sm">
+          Also:{' '}
+          <Link
+            href="/services#tier-2"
+            className="text-fg-subtle hover:text-foreground transition-colors"
+          >
+            web & product development
+          </Link>
+          {', '}
+          <Link
+            href="/services#tier-3"
+            className="text-fg-subtle hover:text-foreground transition-colors"
+          >
+            reliability & support
+          </Link>{' '}
+          <Link
+            href="/services"
+            className="text-fg-subtle hover:text-accent-primary transition-colors"
+            aria-label="View all services"
+          >
+            →
+          </Link>
+        </p>
       </div>
     </section>
   )

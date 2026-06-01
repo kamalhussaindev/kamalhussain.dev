@@ -1,27 +1,16 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { SITE_URL, SERVICE_SLUGS, SERVICE_LABELS } from '@/lib/constants'
-import { SERVICES_DATA, type ServiceSlug } from '@/lib/services-data'
-import { PLACEHOLDERS } from '@/lib/placeholders'
+import { SITE_URL } from '@/lib/constants'
+import { TIERS, type Tier } from '@/lib/tiers-config'
 import { ScopingCalculator } from '@/components/home/scoping-calculator'
 
 export const metadata: Metadata = {
-  title: 'Services — DevOps, Kubernetes, CI/CD & AWS',
+  title: 'Services — DevOps, Cloud, Web & Support',
   description:
-    'Freelance DevOps engineering services: Kubernetes platform setup, CI/CD pipelines, AWS Terraform infrastructure, observability stacks, and WordPress development.',
+    'Three tiers of engineering services: flagship DevOps & cloud infrastructure, web & product development, and ongoing reliability & support.',
   alternates: { canonical: `${SITE_URL}/services` },
   openGraph: { title: 'Services — Kamal Hussain', url: `${SITE_URL}/services` },
-}
-
-const SERVICE_KEY_STACK: Record<ServiceSlug, string[]> = {
-  'kubernetes-platform-engineering': ['Kubernetes', 'EKS', 'ArgoCD', 'Terraform'],
-  'cicd-pipeline-engineering': ['GitHub Actions', 'ArgoCD', 'Helm', 'OIDC'],
-  'aws-terraform-infrastructure': ['Terraform', 'AWS', 'Atlantis', 'Infracost'],
-  'observability-engineering': ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry'],
-  'wordpress-web-development': ['WordPress', 'Next.js', 'Cloudflare', 'WooCommerce'],
-  'devops-consulting-audits': ['AWS', 'Kubernetes', 'tfsec', 'kube-bench'],
 }
 
 const ENGAGEMENT_MODELS = [
@@ -48,6 +37,164 @@ const ENGAGEMENT_MODELS = [
   },
 ]
 
+function Tier1Cards({ tier }: { tier: Tier }) {
+  return (
+    <section id="tier-1" className="border-border border-t py-16 md:py-20">
+      <div className="mb-10 border-l-2 border-[oklch(0.63_0.24_24)] pl-6">
+        <p className="text-accent-primary mb-3 font-mono text-xs font-bold tracking-[0.25em] uppercase">
+          Tier {tier.number} · {tier.title}
+        </p>
+        <h2 className="text-foreground text-2xl font-bold tracking-[-0.03em] md:text-3xl">
+          {tier.title}
+        </h2>
+        <p className="text-fg-muted mt-2 max-w-xl text-base leading-relaxed">
+          {tier.subtitle}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {tier.services.map((service) => (
+          <Link
+            key={service.slug}
+            href={service.href}
+            className="group border-border hover:border-accent-primary/40 card-surface flex flex-col gap-5 rounded-xl border p-6 transition-all"
+          >
+            <div className="flex-1">
+              <h3 className="text-foreground group-hover:text-accent-primary text-lg leading-snug font-bold tracking-[-0.02em] transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-fg-muted mt-2 text-sm leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {service.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="border-border text-fg-subtle rounded-full border px-2.5 py-0.5 text-xs font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-accent-primary text-xs font-semibold transition-all group-hover:translate-x-0.5">
+                View details →
+              </span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Tier2Cards({ tier }: { tier: Tier }) {
+  return (
+    <section id="tier-2" className="border-border border-t py-14 md:py-16">
+      <div className="mb-8">
+        <p className="text-fg-subtle mb-3 font-mono text-xs font-semibold tracking-[0.25em] uppercase">
+          Tier {tier.number} · {tier.title}
+        </p>
+        <h2 className="text-foreground text-xl font-bold tracking-[-0.025em] md:text-2xl">
+          {tier.title}
+        </h2>
+        <p className="text-fg-muted mt-2 max-w-xl text-sm leading-relaxed">
+          {tier.subtitle}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {tier.services.map((service) => (
+          <div
+            key={service.slug}
+            className="border-border/60 bg-bg-raised/30 flex flex-col gap-4 rounded-xl border p-5"
+          >
+            <div className="flex-1">
+              <h3 className="text-foreground text-base leading-snug font-semibold">
+                {service.title}
+              </h3>
+              <p className="text-fg-muted mt-2 text-sm leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {service.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="border-border/50 text-fg-dim rounded-full border px-2 py-0.5 text-xs"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <Link
+              href={service.href}
+              className="text-fg-subtle hover:text-accent-primary text-xs font-medium transition-colors"
+            >
+              Discuss a project →
+            </Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Tier3Cards({ tier }: { tier: Tier }) {
+  return (
+    <section id="tier-3" className="border-border/60 border-t py-12 md:py-14">
+      <div className="mb-7">
+        <p className="text-fg-dim mb-2 font-mono text-xs font-semibold tracking-[0.25em] uppercase">
+          Tier {tier.number} · {tier.title}
+        </p>
+        <h2 className="text-fg-subtle text-lg font-bold tracking-[-0.02em] md:text-xl">
+          {tier.title}
+        </h2>
+        <p className="text-fg-dim mt-1.5 max-w-xl text-sm leading-relaxed">
+          {tier.subtitle}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {tier.services.map((service) => (
+          <div
+            key={service.slug}
+            className="border-border/40 flex flex-col gap-3 rounded-xl border bg-transparent p-4"
+          >
+            <div className="flex-1">
+              <h3 className="text-fg-muted text-sm leading-snug font-semibold">
+                {service.title}
+              </h3>
+              <p className="text-fg-dim mt-1.5 text-xs leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-1">
+              {service.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-fg-dim border-border/30 rounded-full border px-1.5 py-0.5 text-xs"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <Link
+              href={service.href}
+              className="text-fg-dim hover:text-fg-subtle text-xs transition-colors"
+            >
+              Discuss a project →
+            </Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+const TIER_COMPONENTS = [Tier1Cards, Tier2Cards, Tier3Cards]
+
 export default function ServicesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
@@ -59,35 +206,18 @@ export default function ServicesPage() {
         <span className="text-foreground">Services</span>
       </nav>
 
-      {/* PLACEHOLDER-IMG: Replace picsum with a real hero shot (infrastructure/terminal/team) */}
-      <div className="border-border relative mb-12 h-52 overflow-hidden rounded-xl border">
-        <Image
-          src={PLACEHOLDERS.servicesHero}
-          alt="DevOps engineering services"
-          fill
-          className="object-cover opacity-60"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to bottom, transparent 40%, var(--background) 100%)',
-          }}
-        />
-      </div>
-
       {/* Hero */}
-      <div className="mb-20 max-w-2xl">
+      <div className="mb-4 max-w-2xl">
         <p className="text-fg-subtle mb-5 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
-          services · {SERVICE_SLUGS.length}
+          services · {TIERS.reduce((n, t) => n + t.services.length, 0)}
         </p>
         <h1 className="text-hero text-foreground mb-7 max-w-[22ch] font-bold tracking-[-0.04em] [text-wrap:balance]">
           Services<span className="text-accent-primary">.</span>
         </h1>
         <p className="text-fg-muted text-lg leading-relaxed">
-          I work with early-stage and growth-stage companies on the infrastructure layer —
-          from greenfield Kubernetes clusters to CI/CD pipelines to observability stacks.
-          Fixed-scope and day-rate engagements. Remote, async-first.
+          Three tiers. Flagship DevOps and cloud engineering first, web & product
+          development second, and ongoing reliability & support third. The work that pays
+          the bills is infrastructure — the rest hangs off it as a coherent extension.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
@@ -105,48 +235,14 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* Stacked service list */}
-      <div className="border-border mb-28 border-t">
-        {SERVICE_SLUGS.map((slug, i) => (
-          <Link
-            key={slug}
-            href={`/services/${slug}`}
-            className="group border-border hover:border-accent-primary/20 flex items-start gap-6 border-b py-8 transition-colors"
-          >
-            <span className="text-accent-primary w-8 flex-shrink-0 pt-0.5 font-mono text-xs font-bold">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-
-            <div className="min-w-0 flex-1">
-              <h2 className="text-foreground group-hover:text-accent-primary mb-1.5 text-xl font-bold tracking-[-0.02em] transition-colors md:text-2xl">
-                {SERVICE_LABELS[slug]}
-              </h2>
-              <p className="text-fg-muted mb-3 max-w-xl text-sm leading-relaxed">
-                {SERVICES_DATA[slug].tagline}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {SERVICE_KEY_STACK[slug].map((tech) => (
-                  <span
-                    key={tech}
-                    className="border-border text-fg-subtle rounded-full border px-2.5 py-0.5 text-xs font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <ArrowRight
-              size={15}
-              className="text-fg-dim group-hover:text-accent-primary mt-1.5 hidden flex-shrink-0 transition-all group-hover:translate-x-0.5 sm:block"
-              aria-hidden
-            />
-          </Link>
-        ))}
-      </div>
+      {/* Three tier bands */}
+      {TIERS.map((tier, idx) => {
+        const TierComponent = TIER_COMPONENTS[idx]
+        return <TierComponent key={tier.id} tier={tier} />
+      })}
 
       {/* Engagement models */}
-      <section className="mb-24">
+      <section className="mb-24 pt-4">
         <div className="mb-10">
           <p className="text-fg-subtle mb-3 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
             how we work together
@@ -186,7 +282,7 @@ export default function ServicesPage() {
       <ScopingCalculator compact />
 
       {/* Bottom CTA */}
-      <div className="card-surface rounded-xl px-8 py-8">
+      <div className="card-surface mt-16 rounded-xl px-8 py-8">
         <h2 className="text-foreground mb-2 text-xl font-bold tracking-[-0.02em] md:text-2xl">
           Not sure which service fits?
         </h2>
