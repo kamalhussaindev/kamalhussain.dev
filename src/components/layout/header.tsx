@@ -117,14 +117,14 @@ export function Header() {
           <div className="flex items-center gap-1 md:hidden">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="text-fg-muted hover:text-foreground rounded-md p-2 transition-colors"
+              className="text-fg-muted hover:text-foreground min-h-11 min-w-11 rounded-md p-2 transition-colors"
               aria-label="Toggle theme"
             >
               <ThemeIcon size={16} aria-hidden />
             </button>
             <button
               onClick={() => setMenuOpen((o) => !o)}
-              className="text-fg-muted hover:text-foreground rounded-md p-2 transition-colors"
+              className="text-fg-muted hover:text-foreground min-h-11 min-w-11 rounded-md p-2 transition-colors"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"

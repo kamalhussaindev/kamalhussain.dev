@@ -108,7 +108,7 @@ export function K8sChecklistPDF() {
             Compiled from real-world engagements by Kamal Hussain, freelance DevOps
             engineer.
           </Text>
-          <Text style={styles.meta}>kamalhussain.dev · hello@kamalhussain.dev</Text>
+          <Text style={styles.meta}>kamalhussain.dev · kamal@kamalhussain.dev</Text>
         </View>
 
         {K8S_CHECKLIST.map((category) => (

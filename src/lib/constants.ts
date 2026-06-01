@@ -7,7 +7,7 @@ export const SITE_DESCRIPTION =
 
 export const AUTHOR = {
   name: 'Kamal Hussain',
-  email: 'hello@kamalhussain.dev',
+  email: 'kamal@kamalhussain.dev',
   location: 'Rawalpindi, Pakistan',
   upwork: 'https://www.upwork.com/freelancers/kamalh',
   github: 'https://github.com/kamalhussaindevops',

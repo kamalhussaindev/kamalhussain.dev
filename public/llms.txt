@@ -24,7 +24,7 @@ CI/CD pipeline design, AWS infrastructure with Terraform, and observability engi
 
 ## Contact
 
-- Email: hello@kamalhussain.dev
+- Email: kamal@kamalhussain.dev
 - Book a call: https://kamalhussain.dev/book
 - Upwork: https://www.upwork.com/freelancers/kamalh
 

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { PLACEHOLDERS } from '@/lib/placeholders'
 
 const CASE_STUDIES = [
   {
@@ -39,10 +38,9 @@ export function WorkBento() {
               href={`/work/${cs.slug}`}
               className="card-surface group flex flex-col overflow-hidden rounded-xl p-6 transition-all"
             >
-              {/* PLACEHOLDER-IMG: Replace picsum with real project screenshots */}
               <div className="relative -mx-6 -mt-6 mb-4 h-36 overflow-hidden rounded-t-xl">
                 <Image
-                  src={PLACEHOLDERS.workThumbnail(cs.slug)}
+                  src="/pulsehealth-metrics.png"
                   alt={cs.title}
                   fill
                   className="object-cover opacity-50 transition-opacity group-hover:opacity-60"
