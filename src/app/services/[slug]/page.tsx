@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Download } from 'lucide-react'
 import { SITE_URL, SERVICE_SLUGS, SERVICE_LABELS } from '@/lib/constants'
 import { SERVICES_DATA, type ServiceSlug } from '@/lib/services-data'
-import { PLACEHOLDERS } from '@/lib/placeholders'
 
 export function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }))
@@ -90,21 +88,26 @@ export default async function ServicePage({
           <span className="text-foreground">{data.title}</span>
         </nav>
 
-        {/* PLACEHOLDER-IMG: Replace picsum with a real per-service hero shot */}
-        <div className="border-border relative mb-12 h-52 overflow-hidden rounded-xl border">
-          <Image
-            src={PLACEHOLDERS.serviceHero(slug)}
-            alt={data.title}
-            fill
-            className="object-cover opacity-60"
-          />
+        {/* Service hero band — dark gradient, no stock photos */}
+        <div
+          className="border-border relative mb-12 h-52 overflow-hidden rounded-xl border"
+          style={{
+            background:
+              'linear-gradient(135deg, oklch(0.09 0.008 290) 0%, oklch(0.12 0.015 280) 50%, oklch(0.10 0.012 300) 100%)',
+          }}
+        >
           <div
-            className="absolute inset-0"
+            className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'linear-gradient(to bottom, transparent 40%, var(--background) 100%)',
+                'radial-gradient(ellipse 60% 80% at 100% 50%, oklch(0.63 0.24 24 / 0.07) 0%, transparent 70%)',
             }}
           />
+          <div className="absolute bottom-6 left-6">
+            <p className="text-accent-primary font-mono text-xs font-semibold tracking-[0.2em] uppercase">
+              {data.title}
+            </p>
+          </div>
         </div>
 
         {/* Hero */}
