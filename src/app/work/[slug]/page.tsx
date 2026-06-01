@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { SITE_URL, SITE_NAME } from '@/lib/constants'
 import { WORK_DATA, WORK_SLUGS, type WorkSlug } from '@/lib/work-data'
-import { PLACEHOLDERS } from '@/lib/placeholders'
 
 export function generateStaticParams() {
   return WORK_SLUGS.map((slug) => ({ slug }))
@@ -61,10 +60,9 @@ export default async function CaseStudyPage({
       />
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* PLACEHOLDER-IMG: Replace picsum with real project hero screenshot */}
         <div className="border-border relative mb-12 h-64 overflow-hidden rounded-xl border">
           <Image
-            src={PLACEHOLDERS.workHero(slug)}
+            src="/pulsehealth-metrics.png"
             alt={cs.headline}
             fill
             className="object-cover opacity-60"
@@ -184,11 +182,10 @@ export default async function CaseStudyPage({
               </div>
             </section>
 
-            {/* PLACEHOLDER-IMG: Replace picsum with real project screenshot / dashboard */}
             <div className="border-border relative mb-14 h-56 overflow-hidden rounded-xl border">
               <Image
-                src={PLACEHOLDERS.workScreenshot(slug, 1)}
-                alt={`${cs.headline} — result screenshot`}
+                src="/pulsehealth-metrics.png"
+                alt={`${cs.headline} — metrics dashboard`}
                 fill
                 className="object-cover opacity-70"
               />
@@ -201,15 +198,7 @@ export default async function CaseStudyPage({
                   <p className="text-fg-muted text-base leading-relaxed italic">
                     &ldquo;{cs.testimonial.quote}&rdquo;
                   </p>
-                  <footer className="mt-4 flex items-center gap-3">
-                    {/* PLACEHOLDER-IMG: Replace pravatar with real client photo */}
-                    <Image
-                      src={PLACEHOLDERS.workTestimonialAvatar(slug)}
-                      alt={cs.testimonial.role}
-                      width={32}
-                      height={32}
-                      className="h-8 w-8 rounded-full object-cover"
-                    />
+                  <footer className="mt-4">
                     <span className="text-fg-subtle font-mono text-xs">
                       — {cs.testimonial.role}
                     </span>

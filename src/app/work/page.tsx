@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { SITE_URL } from '@/lib/constants'
 import { WORK_DATA, WORK_SLUGS } from '@/lib/work-data'
-import { PLACEHOLDERS } from '@/lib/placeholders'
 
 export const metadata: Metadata = {
   title: 'Engineering Case Studies — Kamal Hussain',
@@ -51,10 +50,9 @@ export default function WorkPage() {
               href={`/work/${slug}`}
               className="card-surface group flex flex-col gap-4 overflow-hidden rounded-xl transition-all sm:flex-row sm:items-start sm:justify-between"
             >
-              {/* PLACEHOLDER-IMG: Replace picsum with real project screenshots */}
               <div className="relative h-40 overflow-hidden sm:h-auto sm:w-48 sm:flex-shrink-0">
                 <Image
-                  src={PLACEHOLDERS.workThumbnail(slug)}
+                  src="/pulsehealth-metrics.png"
                   alt={cs.headline}
                   fill
                   className="object-cover opacity-50 transition-opacity group-hover:opacity-60"

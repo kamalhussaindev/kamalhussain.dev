@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { SITE_URL, SITE_NAME, AUTHOR } from '@/lib/constants'
-import { PLACEHOLDERS } from '@/lib/placeholders'
 
 export const metadata: Metadata = {
   title: 'About Kamal Hussain — DevOps & Cloud Engineer',
@@ -140,10 +139,9 @@ export default function AboutPage() {
                 How I work
               </h2>
 
-              {/* PLACEHOLDER-IMG: Replace with real workspace/desk photo */}
               <div className="border-border relative my-2 h-56 overflow-hidden rounded-xl border">
                 <Image
-                  src={PLACEHOLDERS.aboutWorkspace}
+                  src="/workspace.png"
                   alt="Kamal's workspace"
                   fill
                   className="object-cover"
@@ -208,13 +206,13 @@ export default function AboutPage() {
 
           {/* Sidebar */}
           <aside className="space-y-8 lg:pt-20">
-            {/* PLACEHOLDER-IMG: Replace with real portrait photo of Kamal */}
-            <div className="border-border relative aspect-[3/4] overflow-hidden rounded-xl border">
+            <div className="border-border relative aspect-square overflow-hidden rounded-xl border sm:aspect-[3/4]">
               <Image
-                src={PLACEHOLDERS.aboutHeroPortrait}
+                src="/kamal-hussain.png"
                 alt="Kamal Hussain"
                 fill
                 className="object-cover object-top"
+                priority
               />
             </div>
 
