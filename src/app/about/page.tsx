@@ -25,7 +25,7 @@ const jsonLd = {
     addressLocality: 'Rawalpindi',
     addressCountry: 'PK',
   },
-  sameAs: [AUTHOR.github, AUTHOR.linkedin, AUTHOR.twitter, AUTHOR.upwork, AUTHOR.agency],
+  sameAs: [AUTHOR.github, AUTHOR.linkedin, AUTHOR.twitter, AUTHOR.upwork],
   knowsAbout: [
     'Kubernetes',
     'AWS',
@@ -136,50 +136,6 @@ export default function AboutPage() {
                 well.
               </p>
 
-              <p>
-                I&apos;m a co-founder at{' '}
-                <a
-                  href={AUTHOR.agency}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent-primary hover:text-accent-primary/80 transition-colors"
-                >
-                  NxtAuric
-                </a>
-                , a small agency where we build web products and manage cloud
-                infrastructure for clients who need a real team, not a freelancer with a
-                contractor network.
-              </p>
-
-              {/* NxtAuric pull-quote callout */}
-              <div className="border-accent-primary bg-bg-raised my-4 rounded-xl border-l-2 px-6 py-5 not-italic">
-                <p className="text-foreground text-xl leading-snug font-bold tracking-tight md:text-2xl">
-                  &ldquo;When a project needs a full team — design, engineering,
-                  infrastructure — I run it through NxtAuric, the agency I
-                  co-founded.&rdquo;
-                </p>
-                <div className="mt-4 flex items-center gap-3">
-                  <Image
-                    src="/kamal-hussain.png"
-                    alt="Kamal Hussain"
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 flex-shrink-0 rounded-full object-cover object-top"
-                  />
-                  <div>
-                    <p className="text-foreground text-sm font-semibold">Kamal Hussain</p>
-                    <a
-                      href={AUTHOR.agency}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent-primary hover:text-accent-primary/80 text-xs transition-colors"
-                    >
-                      Co-founder · NxtAuric →
-                    </a>
-                  </div>
-                </div>
-              </div>
-
               <h2 className="text-foreground pt-4 text-2xl font-bold tracking-[-0.02em]">
                 How I work
               </h2>
@@ -232,35 +188,6 @@ export default function AboutPage() {
                 </Link>{' '}
                 for what I&apos;m working on right now.
               </p>
-
-              <h2 className="text-foreground pt-4 text-2xl font-bold tracking-[-0.02em]">
-                Beyond solo work
-              </h2>
-
-              <p>
-                I co-founded{' '}
-                <a
-                  href={AUTHOR.agency}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent-primary hover:text-accent-primary/80 transition-colors"
-                >
-                  NxtAuric
-                </a>{' '}
-                to handle the engagements that are bigger than one person — projects that
-                need design, frontend, backend, and infrastructure all moving together. My
-                role there is co-founder and lead engineer: I scope the project, pick the
-                right people, and stay accountable for the outcome. The team works under
-                me, not instead of me.
-              </p>
-
-              <p>
-                NxtAuric is where I send clients who need multi-discipline product work
-                over 6+ weeks: a SaaS platform from scratch, a full site rebuild with
-                headless WordPress and CI/CD, or a long-term infrastructure retainer that
-                also needs frontend support. You still deal with one person. That&apos;s
-                intentional.
-              </p>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
@@ -302,7 +229,6 @@ export default function AboutPage() {
                   { label: 'LinkedIn', href: AUTHOR.linkedin },
                   { label: 'X / Twitter', href: AUTHOR.twitter },
                   { label: 'Upwork', href: AUTHOR.upwork },
-                  { label: 'NxtAuric', href: AUTHOR.agency },
                 ].map(({ label, href }) => (
                   <li key={label}>
                     <a

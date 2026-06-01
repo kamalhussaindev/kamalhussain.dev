@@ -56,21 +56,6 @@ export default function NowPage() {
                   KEDA for event-driven autoscaling, Loki + Tempo for full observability.
                 </span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-accent-primary mt-0.5 flex-shrink-0">·</span>
-                <span>
-                  Growing{' '}
-                  <a
-                    href="https://nxtauric.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent-primary hover:text-accent-primary/80 transition-colors"
-                  >
-                    NxtAuric
-                  </a>{' '}
-                  — expanding our DevOps retainer offering for MENA-based SaaS companies.
-                </span>
-              </li>
             </ul>
           </section>
 

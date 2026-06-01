@@ -37,7 +37,7 @@ const FAQS = [
   },
   {
     q: 'What if my project is too small? Or too big?',
-    a: "I'll tell you honestly. For very small one-off tasks (a single Terraform module, a quick security review), I'll tell you whether a short engagement makes sense or whether you'd be better served by documentation and doing it yourself. For large projects that need a full team, I'll be direct about whether that's better run through NxtAuric.",
+    a: "I'll tell you honestly. For very small one-off tasks (a single Terraform module, a quick security review), I'll tell you whether a short engagement makes sense or whether you'd be better served by documentation and doing it yourself. For large or complex projects, I'll be upfront about scope and whether the timeline and budget are realistic.",
   },
   {
     q: 'Is this really free?',

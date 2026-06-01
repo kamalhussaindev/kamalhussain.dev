@@ -9,7 +9,7 @@ export const contentType = OG_CONTENT_TYPE
 export default function Image() {
   return buildOgImage({
     title: 'About Kamal Hussain',
-    subtitle: 'DevOps engineer, co-founder of NxtAuric, based in Rawalpindi.',
+    subtitle: 'DevOps & Cloud Engineer based in Rawalpindi, Pakistan.',
     type: 'About',
   })
 }

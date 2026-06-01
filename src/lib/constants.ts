@@ -10,7 +10,6 @@ export const AUTHOR = {
   email: 'hello@kamalhussain.dev',
   location: 'Rawalpindi, Pakistan',
   upwork: 'https://www.upwork.com/freelancers/kamalh',
-  agency: 'https://nxtauric.com',
   github: 'https://github.com/kamalhussaindevops',
   linkedin: 'https://www.linkedin.com/in/kamal-hussain-cloud-engineer/',
   twitter: 'https://x.com/nxt_analyst',

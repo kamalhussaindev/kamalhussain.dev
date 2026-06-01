@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { ExternalLink } from 'lucide-react'
 import { Marquee } from '@/components/ui/marquee'
 import { AUTHOR, SERVICE_SLUGS, SERVICE_LABELS } from '@/lib/constants'
 import { RESOURCE_SLUGS, RESOURCE_LABELS } from '@/lib/resources-data'
@@ -178,17 +177,6 @@ export function Footer() {
                   {AUTHOR.email}
                 </a>
               </li>
-              <li className="pt-1">
-                <a
-                  href={AUTHOR.agency}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent-primary hover:text-accent-primary/80 inline-flex items-center gap-1 text-sm transition-colors"
-                >
-                  NxtAuric Agency
-                  <ExternalLink size={12} aria-hidden />
-                </a>
-              </li>
             </ul>
           </div>
           {/* Resources */}
@@ -216,23 +204,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6">
-              <h3 className="text-fg-subtle mb-4 text-xs font-semibold tracking-[0.2em] uppercase">
-                NxtAuric
-              </h3>
-              <p className="text-fg-muted mb-4 text-sm leading-relaxed">
-                The agency I co-founded with a small team of engineers and designers.
-              </p>
-              <a
-                href={AUTHOR.agency}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent-primary hover:text-accent-primary/80 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
-              >
-                Visit nxtauric.com
-                <ExternalLink size={11} aria-hidden />
-              </a>
-            </div>
           </div>
         </div>
 

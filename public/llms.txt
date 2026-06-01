@@ -4,7 +4,6 @@
 
 Kamal Hussain is a freelance engineer specializing in Kubernetes platform engineering,
 CI/CD pipeline design, AWS infrastructure with Terraform, and observability engineering.
-He is also a co-founder of NxtAuric (https://nxtauric.com), a web and cloud agency.
 
 ## Services
 
@@ -28,7 +27,6 @@ He is also a co-founder of NxtAuric (https://nxtauric.com), a web and cloud agen
 - Email: hello@kamalhussain.dev
 - Book a call: https://kamalhussain.dev/book
 - Upwork: https://www.upwork.com/freelancers/kamalh
-- Agency: https://nxtauric.com
 
 ## Site
 

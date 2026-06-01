@@ -20,9 +20,6 @@ export const PLACEHOLDERS = {
   /** Home / AboutTeaser — portrait in the right column */
   aboutTeaserPortrait: 'https://picsum.photos/seed/kamal-about/600/700',
 
-  /** Home / NxtAuricStrip — team photo */
-  nxtauricTeam: 'https://picsum.photos/seed/nxtauric-team/800/500',
-
   /** Home / Testimonials — reviewer avatars (replace initials with real photos or remove) */
   testimonials: {
     jamesCarter: 'https://i.pravatar.cc/160?img=11',

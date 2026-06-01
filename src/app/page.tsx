@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { SITE_URL, SITE_NAME, AUTHOR } from '@/lib/constants'
+import { SITE_URL, SITE_NAME } from '@/lib/constants'
 import { Hero } from '@/components/home/hero'
 import { Stats } from '@/components/home/stats'
 import { ServicesStrip } from '@/components/home/services-strip'
@@ -9,7 +9,6 @@ import { HowIWork } from '@/components/home/how-i-work'
 import { ScopingCalculator } from '@/components/home/scoping-calculator'
 import { WorkBento } from '@/components/home/work-bento'
 import { TechMarquee } from '@/components/home/tech-marquee'
-import { NxtAuricStrip } from '@/components/home/nxtauric-strip'
 import { Testimonials } from '@/components/home/testimonials'
 import { LogoStrip } from '@/components/home/logo-strip'
 import { MagneticButton } from '@/components/ui/magnetic-button'
@@ -52,16 +51,7 @@ export default function HomePage() {
                 development, and eventually found my home in DevOps and cloud engineering.
                 Today I work with startups and scale-ups across the US, EU, and MENA —
                 helping them build the infrastructure platforms they need to move fast
-                without breaking things. I&apos;m also a co-founder at{' '}
-                <a
-                  href={AUTHOR.agency}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent-primary hover:text-accent-primary/80 transition-colors"
-                >
-                  NxtAuric
-                </a>
-                , a small agency for teams that need more than a single freelancer.
+                without breaking things.
               </p>
               <Link
                 href="/about"
@@ -93,8 +83,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <NxtAuricStrip />
 
       {/* Final CTA */}
       <section className="border-border border-t">

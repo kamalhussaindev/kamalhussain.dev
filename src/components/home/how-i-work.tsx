@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { AUTHOR } from '@/lib/constants'
 
 const PRINCIPLES = [
   'Async-first — written over calls',
@@ -44,19 +43,6 @@ export function HowIWork() {
               </li>
             ))}
           </ul>
-
-          <p className="text-fg-subtle border-border border-t pt-6 text-sm leading-relaxed">
-            Need a full team — design, frontend, backend, infra?{' '}
-            <a
-              href={AUTHOR.agency}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-primary hover:text-accent-primary/80 transition-colors"
-            >
-              I bring that in through NxtAuric, the agency I co-founded
-            </a>
-            , and stay as your lead and single point of contact.
-          </p>
         </div>
       </div>
     </section>
