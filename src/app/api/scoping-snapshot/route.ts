@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
     try {
       const { Resend } = await import('resend')
       const resend = new Resend(process.env.RESEND_API_KEY)
-      const toEmail = process.env.RESEND_TO_EMAIL ?? 'hello@kamalhussain.dev'
+      const toEmail = process.env.RESEND_TO_EMAIL ?? 'kamal@kamalhussain.dev'
       const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'no-reply@kamalhussain.dev'
 
       const rangeStr =

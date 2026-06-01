@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
     })
   } catch (err) {
     console.error('[checklist-download] PDF generation failed:', err)
-    return new Response('PDF generation failed. Please contact hello@kamalhussain.dev.', {
+    return new Response('PDF generation failed. Please contact kamal@kamalhussain.dev.', {
       status: 500,
     })
   }
