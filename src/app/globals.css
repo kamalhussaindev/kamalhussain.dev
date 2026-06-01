@@ -185,11 +185,21 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+  /* Prevent iOS auto-zoom on focused inputs (requires font-size ≥ 16px) */
+  @media (max-width: 768px) {
+    input,
+    textarea,
+    select {
+      font-size: max(1rem, 1em) !important;
+    }
   }
   /* Remove native cursor when custom cursor is active */
   html.custom-cursor,
