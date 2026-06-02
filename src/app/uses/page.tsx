@@ -7,7 +7,19 @@ export const metadata: Metadata = {
   description:
     'The hardware, software, CLI tools, and editor config I use daily as a DevOps and cloud engineer.',
   alternates: { canonical: `${SITE_URL}/uses` },
-  openGraph: { title: 'Uses | Kamal Hussain', url: `${SITE_URL}/uses` },
+  openGraph: {
+    title: 'Uses — Tools, Stack & Setup | Kamal Hussain',
+    description:
+      'The hardware, software, CLI tools, and editor config I use daily as a DevOps and cloud engineer.',
+    url: `${SITE_URL}/uses`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Uses — Tools, Stack & Setup | Kamal Hussain',
+    description:
+      'The hardware, software, CLI tools, and editor config I use daily as a DevOps and cloud engineer.',
+  },
 }
 
 const sections = [

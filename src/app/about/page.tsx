@@ -5,7 +5,7 @@ import { ArrowRight, ExternalLink } from 'lucide-react'
 import { SITE_URL, SITE_NAME, AUTHOR } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'About Kamal Hussain — DevOps & Cloud Engineer',
+  title: 'About — DevOps & Cloud Engineer',
   description:
     'DevOps & cloud engineer based in Rawalpindi, Pakistan. I help startups build production-grade infrastructure — Kubernetes, CI/CD, AWS, observability.',
   alternates: { canonical: `${SITE_URL}/about` },
@@ -177,14 +177,14 @@ export default function AboutPage() {
                 Open to new projects — Kubernetes platforms, CI/CD work, AWS
                 infrastructure, and DevOps consulting. Typical engagement is 2–8 weeks for
                 a focused build, or an ongoing retainer for platform engineering support.
-                See the{' '}
+                See{' '}
                 <Link
                   href="/now"
                   className="text-accent-primary hover:text-accent-primary/80 transition-colors"
                 >
-                  /now page
+                  what I&apos;m working on now
                 </Link>{' '}
-                for what I&apos;m working on right now.
+                for more detail.
               </p>
             </div>
 

@@ -13,7 +13,7 @@ import {
   Activity,
   ClipboardCheck,
 } from 'lucide-react'
-import { SITE_URL } from '@/lib/constants'
+import { SITE_URL, SITE_NAME } from '@/lib/constants'
 import { TIERS, type Tier } from '@/lib/tiers-config'
 import { ServiceCard } from '@/components/services/service-card'
 import { ScopingCalculator } from '@/components/home/scoping-calculator'
@@ -183,116 +183,160 @@ const TIER_SECTIONS = [Tier1Section, Tier2Section, Tier3Section]
 // ── Page ───────────────────────────────────────────────────────────────────────
 
 export default function ServicesPage() {
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: `${SITE_URL}/services`,
+      },
+    ],
+  }
+
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Services — ${SITE_NAME}`,
+    url: `${SITE_URL}/services`,
+    itemListElement: TIERS.flatMap((tier, ti) =>
+      tier.services.map((svc, si) => ({
+        '@type': 'ListItem',
+        position: ti * 10 + si + 1,
+        name: svc.title,
+        url: svc.href.startsWith('/') ? `${SITE_URL}${svc.href}` : svc.href,
+      })),
+    ),
+  }
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-      <nav className="text-fg-muted mb-10 text-sm" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-foreground transition-colors">
-          Home
-        </Link>
-        <span className="text-fg-subtle mx-2">/</span>
-        <span className="text-foreground">Services</span>
-      </nav>
-
-      {/* Hero */}
-      <div className="mb-4 max-w-2xl">
-        <p className="text-fg-subtle mb-5 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
-          services · {TIERS.reduce((n, t) => n + t.services.length, 0)}
-        </p>
-        <h1 className="text-hero text-foreground mb-7 max-w-[22ch] font-bold tracking-[-0.04em] [text-wrap:balance]">
-          Services<span className="text-accent-primary">.</span>
-        </h1>
-        <p className="text-fg-muted text-lg leading-relaxed">
-          Three tiers. Flagship DevOps and cloud engineering first, web & product
-          development second, and ongoing reliability & support third. The work that pays
-          the bills is infrastructure — the rest hangs off it as a coherent extension.
-        </p>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className="btn-shimmer bg-accent-primary hover:bg-accent-primary/90 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-all"
-          >
-            Start a project
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(itemListJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <nav className="text-fg-muted mb-10 text-sm" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-foreground transition-colors">
+            Home
           </Link>
-          <Link
-            href="/book"
-            className="border-border text-foreground hover:bg-bg-raised inline-flex items-center gap-2 rounded-md border px-5 py-2.5 text-sm font-medium transition-colors"
-          >
-            Book a scoping call <ArrowRight size={13} aria-hidden />
-          </Link>
-        </div>
-      </div>
+          <span className="text-fg-subtle mx-2">/</span>
+          <span className="text-foreground">Services</span>
+        </nav>
 
-      {/* Three tier sections */}
-      {TIERS.map((tier, idx) => {
-        const TierSection = TIER_SECTIONS[idx]
-        return <TierSection key={tier.id} tier={tier} />
-      })}
-
-      {/* Engagement models */}
-      <section className="mb-24 pt-4">
-        <div className="mb-10">
-          <p className="text-fg-subtle mb-3 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
-            how we work together
+        {/* Hero */}
+        <div className="mb-4 max-w-2xl">
+          <p className="text-fg-subtle mb-5 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
+            services · {TIERS.reduce((n, t) => n + t.services.length, 0)}
           </p>
-          <h2 className="text-foreground text-2xl font-bold tracking-[-0.025em] md:text-3xl">
-            Engagement models
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {ENGAGEMENT_MODELS.map((model) => (
-            <div
-              key={model.num}
-              className="card-surface flex flex-col gap-4 rounded-xl p-6"
+          <h1 className="text-hero text-foreground mb-7 max-w-[22ch] font-bold tracking-[-0.04em] [text-wrap:balance]">
+            Services<span className="text-accent-primary">.</span>
+          </h1>
+          <p className="text-fg-muted text-lg leading-relaxed">
+            Three tiers. Flagship DevOps and cloud engineering first, web & product
+            development second, and ongoing reliability & support third. The work that
+            pays the bills is infrastructure — the rest hangs off it as a coherent
+            extension.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="btn-shimmer bg-accent-primary hover:bg-accent-primary/90 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-all"
             >
-              <div className="flex items-start justify-between gap-2">
-                <span className="text-accent-primary font-mono text-xs font-bold tracking-[0.2em]">
-                  {model.num}
-                </span>
-                {model.callout && (
-                  <span className="bg-accent-primary/10 border-accent-primary/20 text-accent-primary rounded-full border px-2.5 py-0.5 text-xs font-medium">
-                    {model.callout}
-                  </span>
-                )}
-              </div>
-              <h3 className="text-foreground text-lg leading-snug font-bold tracking-[-0.02em]">
-                {model.label}
-              </h3>
-              <p className="text-fg-muted flex-1 text-sm leading-relaxed">
-                {model.description}
-              </p>
-            </div>
-          ))}
+              Start a project
+            </Link>
+            <Link
+              href="/book"
+              className="border-border text-foreground hover:bg-bg-raised inline-flex items-center gap-2 rounded-md border px-5 py-2.5 text-sm font-medium transition-colors"
+            >
+              Book a scoping call <ArrowRight size={13} aria-hidden />
+            </Link>
+          </div>
         </div>
-      </section>
 
-      <ScopingCalculator compact />
+        {/* Three tier sections */}
+        {TIERS.map((tier, idx) => {
+          const TierSection = TIER_SECTIONS[idx]
+          return <TierSection key={tier.id} tier={tier} />
+        })}
 
-      {/* Bottom CTA */}
-      <div className="card-surface mt-16 rounded-xl px-8 py-8">
-        <h2 className="text-foreground mb-2 text-xl font-bold tracking-[-0.02em] md:text-2xl">
-          Not sure which service fits?
-        </h2>
-        <p className="text-fg-muted mb-5 max-w-lg text-base leading-relaxed">
-          Book a free 30-minute call. We&apos;ll talk through what you&apos;re trying to
-          solve and I&apos;ll tell you honestly whether I can help — and what that looks
-          like.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href="/book"
-            className="btn-shimmer bg-accent-primary hover:bg-accent-primary/90 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-all"
-          >
-            Book a free call
-          </Link>
-          <Link
-            href="/contact"
-            className="border-border text-foreground hover:bg-bg-raised inline-flex items-center gap-2 rounded-md border px-5 py-2.5 text-sm font-medium transition-colors"
-          >
-            Send a project brief
-          </Link>
+        {/* Engagement models */}
+        <section className="mb-24 pt-4">
+          <div className="mb-10">
+            <p className="text-fg-subtle mb-3 font-mono text-xs font-semibold tracking-[0.2em] uppercase">
+              how we work together
+            </p>
+            <h2 className="text-foreground text-2xl font-bold tracking-[-0.025em] md:text-3xl">
+              Engagement models
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {ENGAGEMENT_MODELS.map((model) => (
+              <div
+                key={model.num}
+                className="card-surface flex flex-col gap-4 rounded-xl p-6"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <span className="text-accent-primary font-mono text-xs font-bold tracking-[0.2em]">
+                    {model.num}
+                  </span>
+                  {model.callout && (
+                    <span className="bg-accent-primary/10 border-accent-primary/20 text-accent-primary rounded-full border px-2.5 py-0.5 text-xs font-medium">
+                      {model.callout}
+                    </span>
+                  )}
+                </div>
+                <h3 className="text-foreground text-lg leading-snug font-bold tracking-[-0.02em]">
+                  {model.label}
+                </h3>
+                <p className="text-fg-muted flex-1 text-sm leading-relaxed">
+                  {model.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <ScopingCalculator compact />
+
+        {/* Bottom CTA */}
+        <div className="card-surface mt-16 rounded-xl px-8 py-8">
+          <h2 className="text-foreground mb-2 text-xl font-bold tracking-[-0.02em] md:text-2xl">
+            Not sure which service fits?
+          </h2>
+          <p className="text-fg-muted mb-5 max-w-lg text-base leading-relaxed">
+            Book a free 30-minute call. We&apos;ll talk through what you&apos;re trying to
+            solve and I&apos;ll tell you honestly whether I can help — and what that looks
+            like.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/book"
+              className="btn-shimmer bg-accent-primary hover:bg-accent-primary/90 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-all"
+            >
+              Book a free call
+            </Link>
+            <Link
+              href="/contact"
+              className="border-border text-foreground hover:bg-bg-raised inline-flex items-center gap-2 rounded-md border px-5 py-2.5 text-sm font-medium transition-colors"
+            >
+              Send a project brief
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

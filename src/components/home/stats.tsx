@@ -10,11 +10,12 @@ type Stat = {
   decimals?: number
 }
 
+// TODO: confirm all numbers with Kamal before publishing.
+// "Clients served" omitted until owner supplies the real figure — never publish a fake digit.
 const STATS: Stat[] = [
-  { prefix: '$', end: 6.5, suffix: '', label: 'Total AWS platform cost', decimals: 2 },
-  { end: 96.7, suffix: '%', label: 'Ingress success rate', decimals: 1 },
-  { end: 44, suffix: 'ms', label: 'p99 latency' },
-  { end: 47, suffix: '', label: 'Production K8s checklist' },
+  { end: 10, suffix: '+', label: 'Projects delivered' },
+  { end: 3, suffix: '+', label: 'Years of experience' },
+  { end: 100, suffix: '%', label: 'On-time delivery' },
 ]
 
 function fmt(stat: Stat, val: number) {
@@ -70,18 +71,7 @@ export function Stats() {
   return (
     <section className="border-border border-t">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
-        {/* Context header — these are case study metrics, not client outcomes */}
-        <div className="mb-12">
-          <p className="text-accent-primary mb-2 font-mono text-xs font-medium tracking-[0.2em] uppercase">
-            PulseHealth EKS · Self-directed engineering case study
-          </p>
-          <p className="text-fg-muted text-sm">
-            Real, measured results from a self-built observability platform on AWS — not
-            client metrics.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           {STATS.map((stat, i) => (
             <div
               key={stat.label}

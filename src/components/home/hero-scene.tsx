@@ -22,11 +22,13 @@ const PARTICLE_POSITIONS = (() => {
 
 function Particles() {
   const ref = useRef<THREE.Points>(null)
+  const t = useRef(0)
 
-  useFrame(({ clock }) => {
+  useFrame((_, delta) => {
     if (!ref.current) return
-    ref.current.rotation.x = clock.elapsedTime * 0.04
-    ref.current.rotation.y = clock.elapsedTime * 0.06
+    t.current += delta
+    ref.current.rotation.x = t.current * 0.04
+    ref.current.rotation.y = t.current * 0.06
   })
 
   return (
@@ -45,11 +47,13 @@ function Particles() {
 
 function WireframeGlobe() {
   const ref = useRef<THREE.Mesh>(null)
+  const t = useRef(0)
 
-  useFrame(({ clock }) => {
+  useFrame((_, delta) => {
     if (!ref.current) return
-    ref.current.rotation.x = clock.elapsedTime * 0.07
-    ref.current.rotation.y = clock.elapsedTime * 0.1
+    t.current += delta
+    ref.current.rotation.x = t.current * 0.07
+    ref.current.rotation.y = t.current * 0.1
   })
 
   return (

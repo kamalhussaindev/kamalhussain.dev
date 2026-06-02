@@ -9,7 +9,19 @@ export const metadata: Metadata = {
   description:
     'What Kamal Hussain is working on, learning, and reading right now. Updated monthly.',
   alternates: { canonical: `${SITE_URL}/now` },
-  openGraph: { title: 'Now | Kamal Hussain', url: `${SITE_URL}/now` },
+  openGraph: {
+    title: "Now — What I'm Working On | Kamal Hussain",
+    description:
+      'What Kamal Hussain is working on, learning, and reading right now. Updated monthly.',
+    url: `${SITE_URL}/now`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Now — What I'm Working On | Kamal Hussain",
+    description:
+      'What Kamal Hussain is working on, learning, and reading right now. Updated monthly.',
+  },
 }
 
 export default function NowPage() {

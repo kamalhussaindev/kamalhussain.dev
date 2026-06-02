@@ -5,11 +5,11 @@ import { ArrowRight, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import { SERVICE_SLUGS, SERVICE_LABELS, AUTHOR } from '@/lib/constants'
 
 const BUDGET_OPTIONS = [
-  'Under £2,000',
-  '£2,000 – £5,000',
-  '£5,000 – £10,000',
-  '£10,000 – £25,000',
-  '£25,000+',
+  'Under $2,000',
+  '$2,000 – $5,000',
+  '$5,000 – $10,000',
+  '$10,000 – $25,000',
+  '$25,000+',
   'Not sure yet',
 ]
 

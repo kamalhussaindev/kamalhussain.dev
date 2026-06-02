@@ -79,12 +79,12 @@ export function Footer() {
               DevOps & Cloud Engineer based in Rawalpindi, Pakistan. Working with clients
               in the US, EU, and MENA.
             </p>
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-5 flex items-center gap-1">
               <a
                 href={AUTHOR.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-subtle hover:text-foreground transition-colors"
+                className="text-fg-subtle hover:text-foreground inline-flex h-10 w-10 items-center justify-center rounded transition-colors"
                 aria-label="GitHub"
               >
                 <GithubIcon size={16} />
@@ -93,7 +93,7 @@ export function Footer() {
                 href={AUTHOR.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-subtle hover:text-foreground transition-colors"
+                className="text-fg-subtle hover:text-foreground inline-flex h-10 w-10 items-center justify-center rounded transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon size={16} />
@@ -102,7 +102,7 @@ export function Footer() {
                 href={AUTHOR.upwork}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-subtle hover:text-foreground text-xs font-medium transition-colors"
+                className="text-fg-subtle hover:text-foreground inline-flex min-h-[40px] items-center px-2 text-xs font-medium transition-colors"
               >
                 Upwork
               </a>
@@ -119,7 +119,7 @@ export function Footer() {
                 <li key={slug}>
                   <Link
                     href={`/services/${slug}`}
-                    className="text-fg-muted hover:text-foreground text-sm leading-snug transition-colors"
+                    className="text-fg-muted hover:text-foreground block py-1.5 text-sm leading-snug transition-colors sm:py-0"
                   >
                     {SERVICE_LABELS[slug]}
                   </Link>
@@ -138,7 +138,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-fg-muted hover:text-foreground text-sm transition-colors"
+                    className="text-fg-muted hover:text-foreground block py-1.5 text-sm transition-colors sm:py-0"
                   >
                     {item.label}
                   </Link>
@@ -156,7 +156,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/book"
-                  className="text-fg-muted hover:text-foreground text-sm transition-colors"
+                  className="text-fg-muted hover:text-foreground block py-1.5 text-sm transition-colors sm:py-0"
                 >
                   Book a 30-min call
                 </Link>
@@ -164,7 +164,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-fg-muted hover:text-foreground text-sm transition-colors"
+                  className="text-fg-muted hover:text-foreground block py-1.5 text-sm transition-colors sm:py-0"
                 >
                   Send a project brief
                 </Link>
@@ -172,7 +172,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${AUTHOR.email}`}
-                  className="text-fg-muted hover:text-foreground text-sm break-all transition-colors"
+                  className="text-fg-muted hover:text-foreground block py-1.5 text-sm break-all transition-colors sm:py-0"
                 >
                   {AUTHOR.email}
                 </a>
@@ -188,7 +188,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/checklist/kubernetes-production"
-                  className="text-fg-muted hover:text-foreground text-sm leading-snug transition-colors"
+                  className="text-fg-muted hover:text-foreground block py-1.5 text-sm leading-snug transition-colors sm:py-0"
                 >
                   Kubernetes Production Checklist (47 items)
                 </Link>
@@ -197,7 +197,7 @@ export function Footer() {
                 <li key={slug}>
                   <Link
                     href={`/resources/${slug}`}
-                    className="text-fg-muted hover:text-foreground text-sm leading-snug transition-colors"
+                    className="text-fg-muted hover:text-foreground block py-1.5 text-sm leading-snug transition-colors sm:py-0"
                   >
                     {RESOURCE_LABELS[slug]}
                   </Link>

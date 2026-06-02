@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { SITE_URL, SITE_NAME } from '@/lib/constants'
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, AUTHOR } from '@/lib/constants'
 import { Hero } from '@/components/home/hero'
 import { Stats } from '@/components/home/stats'
 import { ServicesStrip } from '@/components/home/services-strip'
@@ -15,19 +16,68 @@ import { MagneticButton } from '@/components/ui/magnetic-button'
 import { Reveal } from '@/components/ui/reveal'
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} — Freelance DevOps & Cloud Engineer`,
+  title: { absolute: `${SITE_NAME} — Freelance DevOps & Cloud Engineer` },
   description:
     'I build production-grade Kubernetes platforms and CI/CD pipelines for startups that need infrastructure to scale. Based in Pakistan, working globally.',
   alternates: { canonical: SITE_URL },
   openGraph: {
     title: `${SITE_NAME} — Freelance DevOps & Cloud Engineer`,
+    description:
+      'I build production-grade Kubernetes platforms and CI/CD pipelines for startups that need infrastructure to scale. Based in Pakistan, working globally.',
     url: SITE_URL,
   },
+}
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE_NAME,
+  jobTitle: 'DevOps & Cloud Engineer',
+  url: SITE_URL,
+  email: AUTHOR.email,
+  sameAs: [AUTHOR.github, AUTHOR.linkedin, AUTHOR.twitter, AUTHOR.upwork],
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+}
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  areaServed: 'Worldwide',
+  founder: { '@type': 'Person', name: SITE_NAME },
+  sameAs: [AUTHOR.github, AUTHOR.linkedin, AUTHOR.upwork],
 }
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <Hero />
       <LogoStrip />
       <Stats />
@@ -60,24 +110,15 @@ export default function HomePage() {
                 More about me <ArrowRight size={13} aria-hidden />
               </Link>
             </Reveal>
-            {/* [REPLACE WITH REAL PHOTO — Kamal headshot, portrait crop ~3:4] */}
-            <Reveal delay={0.15} className="hidden lg:block">
-              <div
-                className="border-border relative flex aspect-[3/4] flex-col items-center justify-center gap-4 overflow-hidden rounded-xl border"
-                style={{
-                  background:
-                    'linear-gradient(160deg, oklch(0.13 0.02 280) 0%, oklch(0.09 0.008 290) 100%)',
-                }}
-              >
-                <div
-                  className="flex h-20 w-20 items-center justify-center rounded-full border border-white/10 text-2xl font-bold tracking-tight"
-                  style={{ color: 'oklch(0.63 0.24 24)' }}
-                >
-                  KH
-                </div>
-                <p className="font-mono text-xs tracking-[0.2em] text-white/30 uppercase">
-                  Kamal Hussain
-                </p>
+            <Reveal delay={0.15} className="flex justify-center lg:block">
+              <div className="border-border relative aspect-[3/4] w-full max-w-[200px] overflow-hidden rounded-xl border lg:max-w-none">
+                <Image
+                  src="/kamal-hussain.png"
+                  alt="Kamal Hussain"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 200px, 280px"
+                />
               </div>
             </Reveal>
           </div>

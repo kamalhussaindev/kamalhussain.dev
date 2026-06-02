@@ -7,7 +7,7 @@ import { RESOURCE_SLUGS, RESOURCES_DATA } from '@/lib/resources-data'
 export const dynamic = 'force-static'
 
 export const metadata: Metadata = {
-  title: 'Free DevOps Resources — Kamal Hussain',
+  title: 'Free DevOps Resources',
   description:
     'Free Helm charts, Terraform modules, GitHub Actions templates, and ArgoCD patterns from real production engagements. Clone or copy.',
   alternates: { canonical: `${SITE_URL}/resources` },

@@ -16,63 +16,63 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
     {
-      url: `${SITE_URL}/about`,
+      url: `${SITE_URL}/about/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/services`,
+      url: `${SITE_URL}/services/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/work`,
+      url: `${SITE_URL}/work/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/blog`,
+      url: `${SITE_URL}/blog/`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/contact`,
+      url: `${SITE_URL}/contact/`,
       lastModified: now,
       changeFrequency: 'yearly',
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/book`,
+      url: `${SITE_URL}/book/`,
       lastModified: now,
       changeFrequency: 'yearly',
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/uses`,
+      url: `${SITE_URL}/uses/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
-      url: `${SITE_URL}/now`,
+      url: `${SITE_URL}/now/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
-      url: `${SITE_URL}/checklist/kubernetes-production`,
+      url: `${SITE_URL}/checklist/kubernetes-production/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/resources`,
+      url: `${SITE_URL}/resources/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -80,28 +80,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const servicePages: MetadataRoute.Sitemap = SERVICE_SLUGS.map((slug) => ({
-    url: `${SITE_URL}/services/${slug}`,
+    url: `${SITE_URL}/services/${slug}/`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.9,
   }))
 
   const blogPages: MetadataRoute.Sitemap = BLOG_SLUGS.map((slug) => ({
-    url: `${SITE_URL}/blog/${slug}`,
+    url: `${SITE_URL}/blog/${slug}/`,
     lastModified: now,
     changeFrequency: 'yearly',
     priority: 0.7,
   }))
 
   const workPages: MetadataRoute.Sitemap = WORK_SLUGS.map((slug) => ({
-    url: `${SITE_URL}/work/${slug}`,
+    url: `${SITE_URL}/work/${slug}/`,
     lastModified: now,
     changeFrequency: 'yearly',
     priority: 0.7,
   }))
 
   const resourcePages: MetadataRoute.Sitemap = RESOURCE_SLUGS.map((slug) => ({
-    url: `${SITE_URL}/resources/${slug}`,
+    url: `${SITE_URL}/resources/${slug}/`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.8,

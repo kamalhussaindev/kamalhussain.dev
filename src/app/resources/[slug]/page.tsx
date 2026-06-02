@@ -24,14 +24,14 @@ export async function generateMetadata({
   const { slug } = await params
   if (!RESOURCE_SLUGS.includes(slug as ResourceSlug)) return {}
   const r = RESOURCES_DATA[slug as ResourceSlug]
-  const titleTag = `${r.title} | Free — Kamal Hussain`
+  const pageTitle = `${RESOURCE_LABELS[slug as ResourceSlug]} — Free Template`
   const desc = r.subtitle.slice(0, 155)
   return {
-    title: titleTag,
+    title: pageTitle,
     description: desc,
     alternates: { canonical: `${SITE_URL}/resources/${slug}` },
     openGraph: {
-      title: titleTag,
+      title: pageTitle,
       description: desc,
       type: 'article',
       publishedTime: r.datePublished,

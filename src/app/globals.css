@@ -201,6 +201,15 @@
       font-size: max(1rem, 1em) !important;
     }
   }
+  /* Remove focus outline for mouse/pointer users; keep for keyboard navigation */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  /* Branded keyboard focus ring */
+  :focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
   /* Remove native cursor when custom cursor is active */
   html.custom-cursor,
   html.custom-cursor * {

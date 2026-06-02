@@ -146,7 +146,7 @@ export const SERVICES_DATA: Record<ServiceSlug, ServiceData> = {
       'Cilium',
     ],
     pricingNote:
-      'Greenfield cluster builds are quoted as fixed-price projects — typically £4,000–£12,000 depending on complexity, number of workloads, and compliance requirements. Existing cluster remediation or ongoing platform engineering retainers are available at a day rate. I provide a detailed scope document before any work begins so there are no surprises.',
+      'Greenfield cluster builds are quoted as fixed-price projects — typically $5,000–$15,000 depending on complexity, number of workloads, and compliance requirements. Existing cluster remediation or ongoing platform engineering retainers are available at a day rate. I provide a detailed scope document before any work begins so there are no surprises.',
     faqs: [
       {
         q: 'Which Kubernetes distribution do you recommend?',
@@ -281,7 +281,7 @@ export const SERVICES_DATA: Record<ServiceSlug, ServiceData> = {
       'PagerDuty',
     ],
     pricingNote:
-      'Most pipeline builds are scoped as fixed-price projects: £2,500–£7,000 depending on the number of services, environments, and whether legacy CI needs to be replaced or rebuilt. Ongoing retainers available for teams that want a dedicated DevOps engineer without the headcount cost.',
+      'Most pipeline builds are scoped as fixed-price projects: $3,000–$9,000 depending on the number of services, environments, and whether legacy CI needs to be replaced or rebuilt. Ongoing retainers available for teams that want a dedicated DevOps engineer without the headcount cost.',
     faqs: [
       {
         q: 'GitHub Actions or Jenkins — which should I use?',
@@ -409,7 +409,7 @@ export const SERVICES_DATA: Record<ServiceSlug, ServiceData> = {
       'Infracost',
     ],
     pricingNote:
-      'Infrastructure migrations are scoped per-project: a typical AWS estate codification with security hardening runs £3,500–£9,000. Cost optimisation engagements are often day-rate (2–5 days) since the scope depends heavily on what we find. I provide Infracost estimates so you can see the projected cost impact before committing.',
+      'Infrastructure migrations are scoped per-project: a typical AWS estate codification with security hardening runs $4,500–$11,500. Cost optimisation engagements are often day-rate (2–5 days) since the scope depends heavily on what we find. I provide Infracost estimates so you can see the projected cost impact before committing.',
     faqs: [
       {
         q: "We already have Terraform but it's a mess. Can you fix it?",
@@ -538,7 +538,7 @@ export const SERVICES_DATA: Record<ServiceSlug, ServiceData> = {
       'VictoriaMetrics (for large-scale setups)',
     ],
     pricingNote:
-      'Observability builds range from £2,500 (adding Loki and better alerting to an existing Prometheus/Grafana stack) to £8,000 (full stack from scratch with tracing and SLO framework). Ongoing retainers are available for teams that want dashboards and alerts maintained as the system evolves.',
+      'Observability builds range from $3,000 (adding Loki and better alerting to an existing Prometheus/Grafana stack) to $10,000 (full stack from scratch with tracing and SLO framework). Ongoing retainers are available for teams that want dashboards and alerts maintained as the system evolves.',
     faqs: [
       {
         q: 'We have Grafana but nobody looks at it. Where do we start?',
@@ -665,7 +665,7 @@ export const SERVICES_DATA: Record<ServiceSlug, ServiceData> = {
       'Next.js (headless)',
     ],
     pricingNote:
-      'WordPress projects are fixed-price, quoted after a requirements call: simple brochure sites from £1,500, complex WooCommerce stores or headless setups from £4,000. Performance audits and security hardening for existing sites are typically 1–3 days of work.',
+      'WordPress projects are fixed-price, quoted after a requirements call: simple brochure sites from $2,000, complex WooCommerce stores or headless setups from $5,000. Performance audits and security hardening for existing sites are typically 1–3 days of work.',
     faqs: [
       {
         q: 'Should I use WordPress or a headless CMS?',
@@ -776,7 +776,7 @@ export const SERVICES_DATA: Record<ServiceSlug, ServiceData> = {
       'AWS Config',
     ],
     pricingNote:
-      'Standard infrastructure audits are fixed-price: £1,800–£4,500 depending on the scope and complexity of the estate. Incident post-mortems are typically 1–2 days of work. Architecture review sessions (without a full audit) can be booked as half-day or full-day engagements.',
+      'Standard infrastructure audits are fixed-price: $2,500–$6,000 depending on the scope and complexity of the estate. Incident post-mortems are typically 1–2 days of work. Architecture review sessions (without a full audit) can be booked as half-day or full-day engagements.',
     faqs: [
       {
         q: 'What access do you need to do an audit?',
