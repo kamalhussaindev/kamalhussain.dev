@@ -27,7 +27,7 @@ export async function generateMetadata({
   const pageTitle = `${RESOURCE_LABELS[slug as ResourceSlug]} — Free Template`
   const desc = r.subtitle.slice(0, 155)
   return {
-    title: pageTitle,
+    title: { absolute: pageTitle },
     description: desc,
     alternates: { canonical: `${SITE_URL}/resources/${slug}` },
     openGraph: {

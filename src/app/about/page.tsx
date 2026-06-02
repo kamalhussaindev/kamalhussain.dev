@@ -5,7 +5,7 @@ import { ArrowRight, ExternalLink } from 'lucide-react'
 import { SITE_URL, SITE_NAME, AUTHOR } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'About — DevOps & Cloud Engineer',
+  title: { absolute: 'About — DevOps & Cloud Engineer' },
   description:
     'DevOps & cloud engineer based in Rawalpindi, Pakistan. I help startups build production-grade infrastructure — Kubernetes, CI/CD, AWS, observability.',
   alternates: { canonical: `${SITE_URL}/about` },

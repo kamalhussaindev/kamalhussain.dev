@@ -7,7 +7,7 @@ import { WORK_DATA, WORK_SLUGS } from '@/lib/work-data'
 import { PORTFOLIO_PROJECTS } from '@/lib/portfolio-data'
 
 export const metadata: Metadata = {
-  title: 'Work & Case Studies',
+  title: { absolute: 'Work & Case Studies' },
   description:
     'Engineering case studies and web portfolio — EKS observability, Terraform, CI/CD, WordPress sites, and SaaS products. Real metrics, documented decisions.',
   alternates: { canonical: `${SITE_URL}/work` },
