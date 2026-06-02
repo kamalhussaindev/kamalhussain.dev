@@ -36,3 +36,5 @@ jobs:
           local-dir: ./out/
           server-dir: /public_html/
           dangerous-clean-slate: false
+          timeout: 60000
+          retry: 3
