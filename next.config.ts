@@ -2,7 +2,7 @@ import createMDX from '@next/mdx'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: 'standalone',
   trailingSlash: true,
   turbopack: { root: __dirname },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
